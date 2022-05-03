@@ -34,3 +34,8 @@ print('둘레는 : ',c2.getCircumference())
 a=()
 
 print()
+
+
+
+
+밑으로 다들 한마디씩
