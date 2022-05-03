@@ -1,19 +1,17 @@
 insta-클론 코딩 김경수
 
-
+1회 테스트 /김경수
 
 너무 우렵다
 
-<<<<<<< Updated upstream
+
 그래도 역시 nicesugi 이걸 다 이해하다니
-=======
-<<<<<<< HEAD
+
+
 하하하하하핳하하하
-=======
+
 그래도 역시 nicesugi 이걸 다 이해하다니
->>>>>>> 406df0b1dad809548d0544b68abc5a1826172627
->>>>>>> Stashed changes
+
 
 
 여기서부터 다시 해보장222222222
-wefawefawefafaef
