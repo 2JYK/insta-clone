@@ -1,0 +1,96 @@
+/* 모달 start */
+
+.container2 {
+    width: 100%;
+    z-index: 1;
+}
+
+.modal-box2 {
+    width: 100%;
+    text-align: center;
+}
+
+.modal-icon2 {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.popup-wrap2 {
+    background-color: rgba(0, 0, 0, .3);
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    padding: 15px;
+}
+
+.popup2 {
+    width: 100%;
+    max-width: 70%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+
+    box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, .3);
+}
+
+
+.popup-body2 {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.body-content2 {
+    width: 100%;
+    padding: 10px;
+}
+
+.body-contentbox2 {
+    min-height: 70%;
+    max-height: 100%;
+}
+
+.body-content2 div {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.body-contentbox2 > div {
+    width: auto;
+    padding: 1%;
+}
+
+.modal-card2 {
+    font-size: 14px;
+    color: #9E9E9E;
+}
+
+.popup-wrap2 > .close2 {
+    font-size: 30px;
+    color: white;
+    position: relative;
+    left: 200px;
+    cursor: pointer;
+}
+
+.body-item2 {
+    display: flex;
+    width: 100%;
+}
+
+.body-img2 {
+    width: 50%;
+    height: auto;
+    display: flex;
+    background-color: aquamarine;
+}
+
+.body-like {
+    width: 50%;
+    height: auto;
+    background-color: aqua;
+}
