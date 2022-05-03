@@ -4,3 +4,6 @@ def laundry():
 laundry()
 
 print('주현' + laundry())
+
+
+print('ju hi what plan bab memu?')
