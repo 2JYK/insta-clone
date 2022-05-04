@@ -73,116 +73,6 @@ header {
 }
 
 /* 네비바 끝 */
-
-.story_01 {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 6%;
-    margin-left: 23%;
-    padding-bottom: 2%;
-
-    border: 2px solid rgb(219, 219, 219);
-    width: 37%;
-    height: 30%;
-    background-color: white;
-}
-
-.story_02>a {
-    text-decoration: none;
-}
-
-.story_02 {
-    width: 50px;
-    height: 50px;
-    /* border-radius: 50%; */
-
-    margin-top: 10px;
-    height: 70px;
-    width: 10%;
-    text-align: center;
-
-    /* overflow: hidden; */
-}
-
-.story_img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.font {
-    font-size: 12px;
-    color: black;
-    margin-top: 8px;
-    overflow: hidden;
-}
-
-.card,
-.list-group-item {
-    position: inherit;
-}
-
-.card {
-    display: flex;
-    justify-content: left;
-    margin-left: 23%;
-    margin-top: 1%;
-
-    width: 37%;
-}
-
-.card_02 {
-    display: flex;
-    float: left;
-}
-
-.card a {
-    color: black;
-    text-decoration: none;
-}
-
-.card_img {
-    background-image: url(../static/img/dog.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-.card_03 {
-    display: flex;
-    align-items: center;
-}
-
-.card_font {
-    font-size: 15px;
-    margin-top: 13px;
-    margin-left: 20px;
-}
-
-.card_dot {
-    position: relative;
-    left: 520px;
-    /* padding-left: 520px; */
-}
-
-.card-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.show-2 {
-    width: 60%;
-}
-
-.more {
-    font-size: 12px;
-    color: #9E9E9E;
-}
-
 footer {
     position: fixed;
     width: 15%;
@@ -308,6 +198,118 @@ footer {
     font-size: 12px;
     color: #c7c7c7;
 }
+
+.story_01 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 6%;
+    margin-left: 23%;
+    padding-bottom: 2%;
+
+    border: 2px solid rgb(219, 219, 219);
+    width: 37%;
+    height: 30%;
+    background-color: white;
+}
+
+.story_02>a {
+    text-decoration: none;
+}
+
+.story_02 {
+    width: 50px;
+    height: 50px;
+    /* border-radius: 50%; */
+
+    margin-top: 10px;
+    height: 70px;
+    width: 10%;
+    text-align: center;
+
+    /* overflow: hidden; */
+}
+
+.story_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.font {
+    font-size: 12px;
+    color: black;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.card,
+.list-group-item {
+    position: inherit;
+}
+
+.card {
+    display: flex;
+    justify-content: left;
+    margin-left: 23%;
+    margin-top: 1%;
+
+    width: 37%;
+}
+
+.card_02 {
+    display: flex;
+    float: left;
+}
+
+.card a {
+    color: black;
+    text-decoration: none;
+}
+
+.card_img {
+    background-image: url(../static/img/dog.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.card_03 {
+    display: flex;
+    align-items: center;
+}
+
+.card_font {
+    font-size: 15px;
+    margin-top: 13px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.card_dot {
+    position: relative;
+    left: 520px;
+    /* padding-left: 520px; */
+}
+
+.card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.show-2 {
+    width: 60%;
+}
+
+.more {
+    font-size: 12px;
+    color: #9E9E9E;
+}
+
+
 
 
 /* 모달 start */
