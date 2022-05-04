@@ -296,6 +296,7 @@ footer {
 
 .card-main {
     display: flex;
+    padding: 1%;
     justify-content: space-between;
     align-items: center;
 }
@@ -316,7 +317,9 @@ footer {
 
 .container {
     width: 100%;
-    z-index: 1;
+    padding: 1%;
+    height: auto;
+    z-index: 2;
 }
 
 .modal-box {
@@ -330,9 +333,12 @@ footer {
     display: inline-block;
     width: 35px;
     height: 35px;
+    align-content: center;
+    padding-top: 2%;
 
     cursor: pointer;
 }
+
 
 .popup-wrap {
     background-color: rgba(0, 0, 0, .3);
