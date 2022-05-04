@@ -17,7 +17,6 @@ def home():
 
 @app.route("/mars", methods=["POST"])
 def user_info(): # 회원정보 입력(회원가입 -> 이름 아이디어좀 ㅎ)
-	# 아무리 생각해도 여기에 유저 아이디 있는게
 	insta_id_receive = request.form['insta_id_give']
 	name_receive = request.form['name_give']
 	phone_num_receive = request.form['phone_num_give']
@@ -128,18 +127,18 @@ def following_info(): # 팔로잉 정보 입력
 	to_user_id_receive = request.form['to_user_id']
 
 	doc = { # db에 입력되는 user의 정보
-		'from_user_id': from_user_id_receive,
-		'to_user_id': to_user_id_receive,
+		'from_user_id': from_user_id_receive, # 로그인한 아이디
+		'to_user_id': to_user_id_receive, # 로그인한 아이디가 팔로잉하는 아이디
 	}
 
 	db.following_info.insert_one(doc)
-	return jsonify({'msg': '댓글작성 완료!'})
+	return jsonify({'msg': '팔로잉!'})
 
 
 @app.route("/mars", methods=["POST"])
 def follower_info(): # 팔로잉 정보 입력
-	from_user_id_receive = request.form['from_user_id']
-	to_user_id_receive = request.form['to_user_id']
+	from_user_id_receive = request.form['from_user_id'] # 로그인한 아이디를 팔로우하는 사람의 아이디
+	to_user_id_receive = request.form['to_user_id'] # 로그인한 아이디
 
 	doc = { # db에 입력되는 user의 정보
 		'from_user_id': from_user_id_receive,
@@ -147,7 +146,7 @@ def follower_info(): # 팔로잉 정보 입력
 	}
 
 	db.follower_info.insert_one(doc)
-	return jsonify({'msg': '댓글작성 완료!'})
+	return jsonify({'msg': '팔로워!'})
 
 
 if __name__ == '__main__':
