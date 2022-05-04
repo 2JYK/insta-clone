@@ -68,7 +68,3 @@ function save() {
     }
   });
 }
-
-$('.carousel').carousel({
-  interval: false,
-});
