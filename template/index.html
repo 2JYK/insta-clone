@@ -39,7 +39,6 @@
 
 <body>
 
-<li class="wrap">
     <!----------------------- header 시작 ------------------------->
     <header>
         <!----------- 로고 ------->
@@ -259,7 +258,15 @@
 
     <!-------------- feed 모달 창 ----------------->
 
-    <div class="container">
+
+
+
+    <!------------------- 캐러셀 --------------------------->
+<li class="list-group-item">
+
+    <div class="card" id="main-2">
+<!-- 카드 윗부분(모달창(팝업)- 사진-이름 -->
+      <div class="container">
         <div class="modal-box">
             <div class="modal-icon">
                 <i class="fa-solid fa-ellipsis three-dot" id="modal-open1"></i>
@@ -283,21 +290,20 @@
                 </div>
             </div>
         </div>
-    </div>
 
-
-    <!------------------- 캐러셀 --------------------------->
-
-    <div class="card" id="main-2">
-    <li class="list-group-item">
-    <a href="#">
         <div class="card_02">
+            <a href="#"></a>
             <div class="card_img"></div>
         </div>
+
         <div class="card_03">
-            <p class="card_font">kksu_97</p></div>
-    </a>
+            <p class="card_font">kksu_97</p>
+        </div>
+      </div>
+
+<!-- 카드 사진 -->
     <div class="card-body">
+<!--   캐러셀      -->
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="false">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="false">
@@ -322,16 +328,19 @@
             </button>
         </div>
         <div class="card-main">
-            <a href="">
-          <span class="card-title">
-            <i class="fa-regular fa-heart fa-lg"></i>
-            <i class="fa-regular fa-comment-dots fa-lg"></i>
-            <i class="fa-regular fa-paper-plane fa-lg"></i>
-          </span>
+            <a href="#">
+              <span class="card-title">
+                <i class="fa-regular fa-heart fa-lg"></i>
+                <i class="fa-regular fa-comment-dots fa-lg"></i>
+                <i class="fa-regular fa-paper-plane fa-lg"></i>
+              </span>
             </a>
-            <span class="card-title2">
-          <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
-        </span>
+
+            <a href="#">
+              <span class="card-title2">
+                  <i class="fa-regular fa-bookmark fa-lg"></i>
+              </span>
+            </a>
 
         </div>
         <p class="card-text font">chulsu_powerful 님 외 3명이 좋아합니다</p>
@@ -365,6 +374,7 @@
         </li>
     </ul>
     </div>
+</li>
 
     <div class="card" id="main-1">
 <li class="list-group-item">
