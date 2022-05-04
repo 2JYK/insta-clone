@@ -1,4 +1,9 @@
 /* 모달 start */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 .container2 {
     width: 100%;
@@ -7,7 +12,6 @@
 
 .modal-box2 {
     width: 100%;
-    text-align: center;
 }
 
 .modal-icon2 {
@@ -19,6 +23,8 @@
     background-color: rgba(0, 0, 0, .3);
     justify-content: center;
     position: absolute;
+    width: 100%;
+    height: auto;
     top: 0;
     left: 0;
     right: 0;
@@ -30,7 +36,7 @@
 .popup2 {
     width: 100%;
     max-width: 70%;
-    height: 100%;
+    height: 95%;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
@@ -38,30 +44,9 @@
     box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, .3);
 }
 
-
-.popup-body2 {
-    width: 100%;
-    background-color: #ffffff;
-}
-
-.body-content2 {
-    width: 100%;
-    padding: 10px;
-}
-
 .body-contentbox2 {
     min-height: 70%;
     max-height: 100%;
-}
-
-.body-content2 div {
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.body-contentbox2 > div {
-    width: auto;
-    padding: 1%;
 }
 
 .modal-card2 {
@@ -73,7 +58,7 @@
     font-size: 30px;
     color: white;
     position: relative;
-    left: 200px;
+    left: 10%;
     cursor: pointer;
 }
 
@@ -84,13 +69,22 @@
 
 .body-img2 {
     width: 50%;
-    height: auto;
-    display: flex;
-    background-color: aquamarine;
+}
+
+.body-img2 > img {
+    max-width: 98%;
+    object-fit: cover;
 }
 
 .body-like {
     width: 50%;
-    height: auto;
-    background-color: aqua;
+    margin-top: 1%;
+    display: flex;
+}
+
+.round {
+    width: 7%;
+    height: 5%;
+    border-radius: 50%;
+    background-color: #9E9E9E;
 }
