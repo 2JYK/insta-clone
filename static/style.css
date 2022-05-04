@@ -319,7 +319,7 @@ footer {
     width: 100%;
     padding: 1%;
     height: auto;
-    z-index: 2;
+    z-index: 5;
 }
 
 .modal-box {
@@ -411,5 +411,6 @@ footer {
     font-size: 14px;
     color: #9E9E9E;
 }
+
 
 /* 모달 start */
