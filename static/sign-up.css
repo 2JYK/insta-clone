@@ -1,0 +1,102 @@
+/*      뷰포트 최소 브라우저 기기 사이즈가 420px 최고는 1200px 이상     */
+/*      min: 모바일 퍼스트 | max: 데스크탑 퍼스트        */
+@media (min-width: 992px) and (max-width: 1199px) { }
+
+
+
+/*      전체 설정 : 배경, li 태그, 정렬       */
+body {
+    background: #121111;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*      네이비박스 설정 : 배경, 사이즈, 테두리, 정렬     */
+.all_content {
+    background: #0c162d;
+    opacity: 70%;
+
+    max-width: 340px;
+    height: 460px;
+    border: 0.5px solid #afeeee;
+    border-radius: 3%;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    vertical-align: middle;
+    margin: auto;
+    margin-top: 20%;
+}
+
+/*      로고 : 사이즈, 테두리, 정렬       */
+.round {
+    border: 0.1px solid #afeeee;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+
+    margin: 20px;
+}
+
+/*      회원정보 입력 & 푸시 : 테두리, 정렬      */
+.user_signup {
+    padding: 17px;
+    text-align: center;
+    border: none;
+}
+
+/*회원정보 입력 & 푸시 : li*/
+/*.user_input {}*/
+
+/*      회원정보 입력 & 푸시 : input 박스 - 색상, 사이즈, 정렬       */
+.user_text {
+    background-color: #627597;
+    opacity: 30%;
+
+    width: 260px;
+    border: none;
+    border-radius: 12px;
+    padding: 7px;
+
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*      Sign up : 색상, 사이즈, 정렬, 포인트효과        */
+.user-signup_btn {
+    border: 0.5px solid #afeeee;
+    color: #d0ff00;
+    background-color: transparent;
+    border-radius: 12px;
+
+    width: 66px;
+    height: auto;
+    padding: 7px;
+
+    text-align: center;
+    cursor: pointer;
+}
+
+/*      [로그인]화면으로 이동 : 색상, 테두리, 정렬     */
+/*      Log in 폰트 스타일은 sign-up.html에 있음     */
+footer {
+    margin: 10px;
+    text-align: center;
+    color: #fffff0;
+    border-radius: 12px;
+    border: none;
+    padding: 7px;
+
+    margin: 30px;
+    text-align: center;
+}
+
+/*      placeholder : 폰트 색상, 크기       */
+.user_input ::placeholder {
+    color : #d0ff00;
+    font-size: 12px;
+}
