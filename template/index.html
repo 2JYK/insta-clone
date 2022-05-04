@@ -2,620 +2,614 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <!-- JQ 임포트 -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQ 임포트 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- 아이콘 -->
-  <script src="https://kit.fontawesome.com/0c764fa4c5.js" crossorigin="anonymous"></script>
+    <!-- 아이콘 -->
+    <script src="https://kit.fontawesome.com/0c764fa4c5.js" crossorigin="anonymous"></script>
 
-  <!-- 부트스트랩 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  <!-- 구글폰트 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Serif+KR:wght@300&display=swap"
-    rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Serif+KR:wght@300&display=swap"
+          rel="stylesheet">
 
-  <title>Title</title>
+    <title>Title</title>
 
-  <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/style.css">
 
 </head>
 
 <body>
 
-  <li class="wrap">
-      <!----------------------- header 시작 ------------------------->
+<li class="wrap">
+    <!----------------------- header 시작 ------------------------->
     <header>
-      <!----------- 로고 ------->
-      <div class="logo">
-        <a href="">
-          <img alt="Instagram" src="../static/img/insta1.png"
-            srcset="/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x">
-        </a>
-      </div>
+        <!----------- 로고 ------->
+        <div class="logo">
+            <a href="">
+                <img alt="Instagram" src="../static/img/insta1.png"
+                     srcset="/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x">
+            </a>
+        </div>
 
-      <!---------- 검색창 ----------->
-      <div class="search">
-        <input type="text" placeholder="검색">
-        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-      </div>
+        <!---------- 검색창 ----------->
+        <div class="search">
+            <input type="text" placeholder="검색">
+            <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+        </div>
 
-      <nav>
-        <ul class="icons">
-          <li> <a href="#"><i class="fa-solid fa-house fa-xl"></i></a></li>
-          <li> <a href="#"><i class="fa-regular fa-paper-plane fa-xl"></i></a></li>
-          <li> <a href="#"><i class="fa-regular fa-square-plus fa-xl"></i></a></li>
-          <li> <a href="#"><i class="fa-regular fa-compass fa-xl"></i></a></li>
-          <li> <a href="#"><i class="fa-regular fa-heart fa-xl"></i></a></li>
-          <li> <a href="#"><i class="fa-solid fa-circle-user fa-xl"></i></a></li>
-        </ul>
-      </nav>
-      
+        <nav>
+            <ul class="icons">
+                <li><a href="#"><i class="fa-solid fa-house fa-xl"></i></a></li>
+                <li><a href="#"><i class="fa-regular fa-paper-plane fa-xl"></i></a></li>
+                <li><a href="#"><i class="fa-regular fa-square-plus fa-xl"></i></a></li>
+                <li><a href="#"><i class="fa-regular fa-compass fa-xl"></i></a></li>
+                <li><a href="#"><i class="fa-regular fa-heart fa-xl"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-circle-user fa-xl"></i></a></li>
+            </ul>
+        </nav>
+
     </header>
 
     <!-------------------- side 시작 ---------------------->
     <footer>
-      <div class="side">
+        <div class="side">
 
-        <a href="#">
-          <img src="../static/img/kim.jpg" class="side-img">
-        </a>
+            <a href="#">
+                <img src="../static/img/kim.jpg" class="side-img">
+            </a>
 
-        <div class="side-name">
-          <a href="#"><span style="font-weight: bold">KKS_97</span></a>
-          <br>
-          <span>김경수</span>
-        </div>
-        <!-- 전환 버튼 -->
-        <div href="#" class="side-change">
-          <a href="#">전환</a>
-        </div>
-      </div>
-
-    <!---------------- side : 회원님을 위한 추천 ------------------->
-      <div class="side-2">
-        <span>회원님을 위한 추천</span>
-        <a href="#">모두 보기</a>
-      </div>
-
-      <div class="side-3">
-
-        <a href="#">
-          <img src="../static/img/1.jpg" class="side-smimg">
-        </a>
-
-
-        <div class="side-smname">
-          <a href=""> <span>strong_minsu</span> </a>
-          <br>
-          <span>minji_vely님이 팔로....... </span>
+            <div class="side-name">
+                <a href="#"><span style="font-weight: bold">KKS_97</span></a>
+                <br>
+                <span>김경수</span>
+            </div>
+            <!-- 전환 버튼 -->
+            <div href="#" class="side-change">
+                <a href="#">전환</a>
+            </div>
         </div>
 
-        <div href="#" class="side-smchange">
-          <a href="#"> 팔로우 </a>
-        </div>
-      </div>
-
-      <div class="side-3">
-
-        <a href="#">
-          <img src="../static/img/2.jpg" class="side-smimg">
-        </a>
-
-
-        <div class="side-smname">
-          <a href=""> <span>roy_luv</span></a>
-          <br>
-          <span>strong_minsu님이 팔.... </span>
+        <!---------------- side : 회원님을 위한 추천 ------------------->
+        <div class="side-2">
+            <span>회원님을 위한 추천</span>
+            <a href="#">모두 보기</a>
         </div>
 
+        <div class="side-3">
 
-        <div href="#" class="side-smchange">
-          <a href="#"> 팔로우 </a>
-        </div>
-      </div>
-
-      <div class="side-3">
-
-        <a href="#">
-          <img src="../static/img/3.jpg" class="side-smimg">
-        </a>
+            <a href="#">
+                <img src="../static/img/1.jpg" class="side-smimg">
+            </a>
 
 
-        <div class="side-smname">
-          <a href=""> <span>minji_vely</span></a>
-          <br>
-          <span>roy_luv님이 팔로우 합.. </span>
-        </div>
+            <div class="side-smname">
+                <a href=""> <span>strong_minsu</span> </a>
+                <br>
+                <span>minji_vely님이 팔로....... </span>
+            </div>
 
-
-        <div href="#" class="side-smchange">
-          <a href="#"> 팔로우 </a>
-        </div>
-      </div>
-
-      <div class="side-3">
-
-        <a href="#">
-          <img src="../static/img/4.jpg" class="side-smimg">
-        </a>
-
-
-        <div class="side-smname">
-          <a href=""> <span>powerful_K</span></a>
-          <br>
-          <span>strong_minsu님이 팔.... </span>
+            <div href="#" class="side-smchange">
+                <a href="#"> 팔로우 </a>
+            </div>
         </div>
 
+        <div class="side-3">
 
-        <div href="#" class="side-smchange">
-          <a href="#"> 팔로우 </a>
+            <a href="#">
+                <img src="../static/img/2.jpg" class="side-smimg">
+            </a>
+
+
+            <div class="side-smname">
+                <a href=""> <span>roy_luv</span></a>
+                <br>
+                <span>strong_minsu님이 팔.... </span>
+            </div>
+
+
+            <div href="#" class="side-smchange">
+                <a href="#"> 팔로우 </a>
+            </div>
         </div>
-      </div>
 
-      <div class="side-3">
+        <div class="side-3">
 
-        <a href="#">
-          <img src="../static/img/5.jpg" class="side-smimg">
-        </a>
+            <a href="#">
+                <img src="../static/img/3.jpg" class="side-smimg">
+            </a>
 
 
-        <div class="side-smname">
-          <a href=""> <span>KKS_97</span></a>
-          <br>
-          <span>strong_minsu님이 팔.... </span>
+            <div class="side-smname">
+                <a href=""> <span>minji_vely</span></a>
+                <br>
+                <span>roy_luv님이 팔로우 합.. </span>
+            </div>
+
+
+            <div href="#" class="side-smchange">
+                <a href="#"> 팔로우 </a>
+            </div>
         </div>
 
+        <div class="side-3">
 
-        <div href="#" class="side-smchange">
-          <a href="#"> 팔로우 </a>
+            <a href="#">
+                <img src="../static/img/4.jpg" class="side-smimg">
+            </a>
+
+
+            <div class="side-smname">
+                <a href=""> <span>powerful_K</span></a>
+                <br>
+                <span>strong_minsu님이 팔.... </span>
+            </div>
+
+
+            <div href="#" class="side-smchange">
+                <a href="#"> 팔로우 </a>
+            </div>
         </div>
-      </div>
 
-      <!--------- side : footer ------------->
-      <div class="side-4">
-        <a href="#">소개 .</a>
+        <div class="side-3">
 
-        <a href="#">도움말 .</a>
+            <a href="#">
+                <img src="../static/img/5.jpg" class="side-smimg">
+            </a>
 
-        <a href="#">홍보 센터 .</a>
 
-        <a href="#">API .</a>
+            <div class="side-smname">
+                <a href=""> <span>KKS_97</span></a>
+                <br>
+                <span>strong_minsu님이 팔.... </span>
+            </div>
 
-        <a href="#">채용 정보 .</a>
 
-        <a href="#">개인정보처리방침 .</a>
+            <div href="#" class="side-smchange">
+                <a href="#"> 팔로우 </a>
+            </div>
+        </div>
 
-        <a href="#">약관위치인기 .</a>
+        <!--------- side : footer ------------->
+        <div class="side-4">
+            <a href="#">소개 .</a>
 
-        <a href="#">계정 .</a>
+            <a href="#">도움말 .</a>
 
-        <a href="#">해시 태그 .</a>
+            <a href="#">홍보 센터 .</a>
 
-        <a href="#">언어</a>
-      </div>
-      <br>
-      <div class="side-5">
-        © 2022 INSTAGRAM FROM META
-      </div>
+            <a href="#">API .</a>
+
+            <a href="#">채용 정보 .</a>
+
+            <a href="#">개인정보처리방침 .</a>
+
+            <a href="#">약관위치인기 .</a>
+
+            <a href="#">계정 .</a>
+
+            <a href="#">해시 태그 .</a>
+
+            <a href="#">언어</a>
+        </div>
+        <br>
+        <div class="side-5">
+            © 2022 INSTAGRAM FROM META
+        </div>
     </footer>
 
 
     <!----------------------- story 시작 ------------------------->
     <div class="story_01">
 
-      <div class="story_02">
-        <a href="main-1">
-          <img src="../static/img/bike.jpg" alt="" class="story_img">
-          <span class="font">strong_minsu</span>
-        </a>
-      </div>
+        <div class="story_02">
+            <a href="main-1">
+                <img src="../static/img/bike.jpg" alt="" class="story_img">
+                <span class="font">strong_minsu</span>
+            </a>
+        </div>
 
-      <div class="story_02">
-        <a href="#main-2">
-          <img src="../static/img/dog.jpg" alt="" class="story_img">
-          <span class="font">kksu_97</span>
-        </a>
-      </div>
+        <div class="story_02">
+            <a href="#main-2">
+                <img src="../static/img/dog.jpg" alt="" class="story_img">
+                <span class="font">kksu_97</span>
+            </a>
+        </div>
 
-      <div class="story_02">
-        <a href="#main-3">
-          <img src="../static/img/bikee.jpg" alt="" class="story_img">
-          <span class="font">king_jun</span>
-        </a>
-      </div>
+        <div class="story_02">
+            <a href="#main-3">
+                <img src="../static/img/bikee.jpg" alt="" class="story_img">
+                <span class="font">king_jun</span>
+            </a>
+        </div>
 
-      <div class="story_02">
-        <a href="#main-4">
-          <img src="../static/img/dogg.jpg" alt="" class="story_img">
-          <span class="font">minji_vely</span>
-        </a>
-      </div>
+        <div class="story_02">
+            <a href="#main-4">
+                <img src="../static/img/dogg.jpg" alt="" class="story_img">
+                <span class="font">minji_vely</span>
+            </a>
+        </div>
 
-      <div class="story_02">
-        <a href="main-5">
-          <img src="../static/img/bikeee.jpg" alt="" class="story_img">
-          <span class="font">powerful_K</span>
-        </a>
-      </div>
+        <div class="story_02">
+            <a href="main-5">
+                <img src="../static/img/bikeee.jpg" alt="" class="story_img">
+                <span class="font">powerful_K</span>
+            </a>
+        </div>
     </div>
 
-    <!-------------- feed 시작 ----------------->
 
-    <div class="card" id="main-2">
-      <li class="list-group-item">
-        <a href="#">
-          <div class="card_02">
-            <div class="card_img"></div>
-          </div>
-          <div class="card_03">
-              <p class="card_font">kksu_97</p></div>
-        </a>
+    <!-------------- feed 모달 창 ----------------->
 
-        <!-------------- peed 모달 창 ----------------->
-
-        <div class="container">
-          <div class="modal-box">
+    <div class="container">
+        <div class="modal-box">
             <div class="modal-icon">
-              <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
+                <i class="fa-solid fa-ellipsis three-dot" id="modal-open1"></i>
             </div>
-          </div>
+        </div>
 
-          <div class="popup-wrap" id="popup">
+        <div class="popup-wrap" id="popup1">
             <div class="popup">
-              <div class="popup-body">
-                <div class="body-content">
-                  <div class="body-contentbox">
-                    <div class="red">신고</div>
-                    <div class="red">팔로우 취소</div>
-                    <div>게시물로 이동</div>
-                    <div>공유 대상...</div>
-                    <div>링크 복사</div>
-                    <div>퍼가기</div>
-                    <div id="close">취소</div>
-                  </div>
+                <div class="popup-body">
+                    <div class="body-content">
+                        <div class="body-contentbox">
+                            <div class="red">신고</div>
+                            <div class="red">팔로우 취소</div>
+                            <div>게시물로 이동</div>
+                            <div>공유 대상...</div>
+                            <div>링크 복사</div>
+                            <div>퍼가기</div>
+                            <div id="close1">취소</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
     </div>
 
 
     <!------------------- 캐러셀 --------------------------->
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="false">
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="false">
-          <img src="../static/img/dog.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="false">
-          <img src="../static/img/5.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../static/img/3.jpg" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
 
+    <div class="card" id="main-2">
+    <li class="list-group-item">
+    <a href="#">
+        <div class="card_02">
+            <div class="card_img"></div>
+        </div>
+        <div class="card_03">
+            <p class="card_font">kksu_97</p></div>
+    </a>
     <div class="card-body">
-      <div class="card-main">
-        <a href="">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="false">
+                    <img src="../static/img/dog.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="false">
+                    <img src="../static/img/5.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/img/3.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="card-main">
+            <a href="">
           <span class="card-title">
             <i class="fa-regular fa-heart fa-lg"></i>
             <i class="fa-regular fa-comment-dots fa-lg"></i>
             <i class="fa-regular fa-paper-plane fa-lg"></i>
           </span>
-        </a>
-        <span class="card-title2">
+            </a>
+            <span class="card-title2">
           <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
         </span>
 
-      </div>
-      <p class="card-text font">chulsu_powerful 님 외 3명이 좋아합니다</p>
-      <div class="show">
-        <div class="show-2">
-          푸숑이와 아침 산책 매우매우매우매우매ㅜ매ㅜㅇ
-          매우매우매우매우매ㅜ매ㅜㅇ 매우매우매우매우매ㅜ매ㅜㅇ
-          매우매우매우매우매ㅜ매ㅜㅇ 매우매우매우매우매ㅜ매ㅜㅇ
-          매우매우매우매우매ㅜ매ㅜㅇ 매움우행복합니다.
         </div>
-      </div>
-
-      <a href="#">
-        <div class="card-modal">
-          댓글 8개 모두 보기
+        <p class="card-text font">chulsu_powerful 님 외 3명이 좋아합니다</p>
+        <div class="show">
+            <div class="show-2">
+                푸숑이와 아침 산책 매우매우매우매우매ㅜ매ㅜㅇ
+                매우매우매우매우매ㅜ매ㅜㅇ 매우매우매우매우매ㅜ매ㅜㅇ
+                매우매우매우매우매ㅜ매ㅜㅇ 매우매우매우매우매ㅜ매ㅜㅇ
+                매우매우매우매우매ㅜ매ㅜㅇ 매움우행복합니다.
+            </div>
         </div>
-      </a>
-      <a href="#">
 
-        <div class="more"> 4시간 전.. </div>
-      </a>
+        <a href="#">
+            <div class="card-modal">
+                댓글 8개 모두 보기
+            </div>
+        </a>
+        <a href="#">
+
+            <div class="more"> 4시간 전..</div>
+        </a>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-          placeholder="댓글달기...">
+        <li class="list-group-item">
+            <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
+                   placeholder="댓글달기...">
 
-        <button class="card-btn" onclick="save()">
-          게시
-        </button>
-      </li>
+            <button class="card-btn" onclick="save()">
+                게시
+            </button>
+        </li>
     </ul>
-  </div>
+    </div>
 
-  <div class="card" id="main-1">
-    <li class="list-group-item">
-      <a href="#">
+    <div class="card" id="main-1">
+<li class="list-group-item">
+    <a href="#">
         <div class="card_02">
-          <div class="card_img"></div>
+            <div class="card_img"></div>
         </div>
         <div class="card_03">
             <p class="card_font">king_jun</p>
-      </a>
-      
+        </div>
+    </a>
 
-      <div class="container">
+
+    <div class="container">
         <div class="modal-box">
-          <div class="modal-icon">
-            <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
-          </div>
+            <div class="modal-icon">
+                <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
+            </div>
         </div>
 
         <div class="popup-wrap" id="popup">
-          <div class="popup">
-            <div class="popup-body">
-              <div class="body-content">
-                <div class="body-contentbox">
-                  <div class="red">신고</div>
-                  <div class="red">팔로우 취소</div>
-                  <div>게시물로 이동</div>
-                  <div>공유 대상...</div>
-                  <div>링크 복사</div>
-                  <div>퍼가기</div>
-                  <div id="close">취소</div>
+            <div class="popup">
+                <div class="popup-body">
+                    <div class="body-content">
+                        <div class="body-contentbox">
+                            <div class="red">신고</div>
+                            <div class="red">팔로우 취소</div>
+                            <div>게시물로 이동</div>
+                            <div>공유 대상...</div>
+                            <div>링크 복사</div>
+                            <div>퍼가기</div>
+                            <div id="close">취소</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+        <img src="../static/img/bikee.jpg" class="card-img-top" alt="bike">
+    </div>
+
+    <div class="card-body">
 
 
-
-  </div>
-  </li>
-  <img src="../static/img/bikee.jpg" class="card-img-top" alt="bike">
-  <div class="card-body">
-
-
-    <div class="card-main">
-      <a href="#">
+        <div class="card-main">
+            <a href="#">
         <span class="card-title">
           <i class="fa-regular fa-heart fa-lg"></i>
           <i class="fa-regular fa-comment-dots fa-lg"></i>
           <i class="fa-regular fa-paper-plane fa-lg"></i>
         </span>
-      </a>
-      <span class="card-title2">
+            </a>
+            <span class="card-title2">
         <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
       </span>
 
+        </div>
+        <p class="card-text font">king_junseok 님 외 103명이 좋아합니다</p>
+        <div class="show">
+            <div class="show-2">
+                정말 정말 정말ㅈ ㅓㅇ말정망ㅈ머알 세차는 너무너무너무너무너무
+                너무너뭐누머누머ㅜ무 신나요~
+            </div>
+        </div>
+        <a href="#">
+            <div class="more"> 3분 전..</div>
+        </a>
     </div>
-    <p class="card-text font">king_junseok 님 외 103명이 좋아합니다</p>
-    <div class="show">
-      <div class="show-2">
-        정말 정말 정말ㅈ ㅓㅇ말정망ㅈ머알 세차는 너무너무너무너무너무
-        너무너뭐누머누머ㅜ무 신나요~
-      </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
+                   placeholder="댓글달기...">
+
+            <button class="card-btn" onclick="save()">
+                게시
+            </button>
+        </li>
+    </ul>
     </div>
+
+
+    <div class="card" id="main-4">
+<li class="list-group-item">
     <a href="#">
-      <div class="more"> 3분 전.. </div>
-    </a>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-        placeholder="댓글달기...">
-
-      <button class="card-btn" onclick="save()">
-        게시
-      </button>
-
-    </li>
-  </ul>
-  </div>
-
-  <div class="card" id="main-4">
-    <li class="list-group-item">
-      <a href="#">
         <div class="card_02">
-          <div class="card_img"></div>
+            <div class="card_img"></div>
         </div>
         <div class="card_03">
-          <p class="card_font">minji_vely</p>
-      </a>
-      
-      
-      <div class="container">
+            <p class="card_font">minji_vely</p>
+    </a>
+
+
+    <div class="container">
         <div class="modal-box">
-          <div class="modal-icon">
-            <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
-          </div>
+            <div class="modal-icon">
+                <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
+            </div>
         </div>
 
         <div class="popup-wrap" id="popup">
-          <div class="popup">
-            <div class="popup-body">
-              <div class="body-content">
-                <div class="body-contentbox">
-                  <div class="red">신고</div>
-                  <div class="red">팔로우 취소</div>
-                  <div>게시물로 이동</div>
-                  <div>공유 대상...</div>
-                  <div>링크 복사</div>
-                  <div>퍼가기</div>
-                  <div id="close">취소</div>
+            <div class="popup">
+                <div class="popup-body">
+                    <div class="body-content">
+                        <div class="body-contentbox">
+                            <div class="red">신고</div>
+                            <div class="red">팔로우 취소</div>
+                            <div>게시물로 이동</div>
+                            <div>공유 대상...</div>
+                            <div>링크 복사</div>
+                            <div>퍼가기</div>
+                            <div id="close">취소</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
 
-  </div>
-  </li>
+    </div>
+</li>
 
-  <img src="../static/img/dogg.jpg" class="card-img-top" alt="">
+<img src="../static/img/dogg.jpg" class="card-img-top" alt="">
 
-  <div class="card-body">
+<div class="card-body">
     <div class="card-main">
-      <a href="">
+        <a href="">
         <span class="card-title">
           <i class="fa-regular fa-heart fa-lg"></i>
           <i class="fa-regular fa-comment-dots fa-lg"></i>
           <i class="fa-regular fa-paper-plane fa-lg"></i>
         </span>
-      </a>
-      <span class="card-title2">
+        </a>
+        <span class="card-title2">
         <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
       </span>
     </div>
     <p class="card-text font">좋아요 5개</p>
     <div class="show">
-      <div class="show-2">
-        오늘 점심에 강아지를 이발시켰다. 이발 시켰더니 얼굴이 동글동글동글
-        귀도 둥글둥글 코도 동굴동굴동굴 몸통도 빵빵해졌따
-        특히 발이 귀여워졌다 마치 닭발 같다 결정했다 !!
-        오늘은 닭발을 먹어야겠다
-      </div>
+        <div class="show-2">
+            오늘 점심에 강아지를 이발시켰다. 이발 시켰더니 얼굴이 동글동글동글
+            귀도 둥글둥글 코도 동굴동굴동굴 몸통도 빵빵해졌따
+            특히 발이 귀여워졌다 마치 닭발 같다 결정했다 !!
+            오늘은 닭발을 먹어야겠다
+        </div>
     </div>
     <a href="#">
-      <div class="more"> 21시간 전.. </div>
+        <div class="more"> 21시간 전..</div>
     </a>
-  </div>
-  <ul class="list-group list-group-flush">
+</div>
+<ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-        placeholder="댓글달기...">
-      <button class="card-btn" onclick="save()">
-        게시
-      </button>
+        <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
+               placeholder="댓글달기...">
+        <button class="card-btn" onclick="save()">
+            게시
+        </button>
     </li>
-  </ul>
-  </div>
-  <div class="card" id="1">
+</ul>
+</div>
+<div class="card" id="1">
     <li class="list-group-item">
-      <a href="#">
-        <div class="card_02">
-          <div class="card_img"></div>
-        </div>
-        <div class="card_03">
-          <p class="card_font">powerful_K</p>
-      </a>
-
-      <div class="container">
-        <div class="modal-box">
-          <div class="modal-icon">
-            <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
-          </div>
-        </div>
-
-        <div class="popup-wrap" id="popup">
-          <div class="popup">
-            <div class="popup-body">
-              <div class="body-content">
-                <div class="body-contentbox">
-                  <div>신고</div>
-                  <div>팔로우 취소</div>
-                  <div>게시물로 이동</div>
-                  <div>공유 대상...</div>
-                  <div>링크 복사</div>
-                  <div>퍼가기</div>
-                  <div id="close">취소</div>
-                </div>
-              </div>
+        <a href="#">
+            <div class="card_02">
+                <div class="card_img"></div>
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="card_03">
+                <p class="card_font">powerful_K</p>
+        </a>
 
-  </div>
-  </li>
-  <img src="../static/img/bike.jpg" class="card-img-top" alt="bike">
-  <div class="card-body">
+        <div class="container">
+            <div class="modal-box">
+                <div class="modal-icon">
+                    <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
+                </div>
+            </div>
+
+            <div class="popup-wrap" id="popup">
+                <div class="popup">
+                    <div class="popup-body">
+                        <div class="body-content">
+                            <div class="body-contentbox">
+                                <div>신고</div>
+                                <div>팔로우 취소</div>
+                                <div>게시물로 이동</div>
+                                <div>공유 대상...</div>
+                                <div>링크 복사</div>
+                                <div>퍼가기</div>
+                                <div id="close">취소</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+</li>
+<img src="../static/img/bike.jpg" class="card-img-top" alt="bike">
+<div class="card-body">
 
 
     <div class="card-main">
-      <a href="">
+        <a href="">
         <span class="card-title">
           <i class="fa-regular fa-heart fa-lg"></i>
           <i class="fa-regular fa-comment-dots fa-lg"></i>
           <i class="fa-regular fa-paper-plane fa-lg"></i>
         </span>
-      </a>
-      <span class="card-title2">
+        </a>
+        <span class="card-title2">
         <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
       </span>
 
     </div>
     <p class="card-text font">chulsu_powerful 님 외 15명이 좋아합니다</p>
     <div class="show">
-      <div class="show-2">
-        바이크를 타고 가는 여행은 너무너무너무 쉬원하고 기분이 좋다.
-        맨날 맨날 매난~~~~~~~~~~~~~~~~~~~~ 여행 가고 싶다
-      </div>
+        <div class="show-2">
+            바이크를 타고 가는 여행은 너무너무너무 쉬원하고 기분이 좋다.
+            맨날 맨날 매난~~~~~~~~~~~~~~~~~~~~ 여행 가고 싶다
+        </div>
     </div>
     <a href="#">
-      <div class="more"> 하루 전.. </div>
+        <div class="more"> 하루 전..</div>
     </a>
-  </div>
-  <ul class="list-group list-group-flush">
+</div>
+<ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-        placeholder="댓글달기...">
+        <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
+               placeholder="댓글달기...">
 
-      <button class="card-btn" onclick="save()">
-        게시
-      </button>
+        <button class="card-btn" onclick="save()">
+            게시
+        </button>
 
     </li>
-  </ul>
-  </div>
+</ul>
+</div>
 
-  <!------------ 게시글 끝!!!!!!!!!!!!!!!! 드디어 끝!!!!! ----------->
-  <br>
-  <br>
-  <br>
+<!------------ 게시글 끝!!!!!!!!!!!!!!!! 드디어 끝!!!!! ----------->
+<br>
+<br>
+<br>
 
 
-  <script src="../static/motion.js"></script>
+<script src="../static/motion.js"></script>
 </body>
 
 </html>
