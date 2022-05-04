@@ -143,7 +143,7 @@ header {
 }
 
 .card_img {
-    background-image: url(./dog.jpg);
+    background-image: url(../static/img/dog.jpg);
     background-position: center;
     background-size: cover;
     width: 50px;
