@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Gowun Dodum', sans-serif;
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+}
+/* 네비바 시작 */
+header {
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 75px;
+    padding: 0px 300px;
+    color: white;
+    background: white;
+
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #E4E4E4;
+}
+
+.logo {
+    width: 40%;
+    padding-left: 140px;
+}
+
+.search {
+    position: relative;
+    right: 120px;
+    width: 26%;
+}
+
+.search>input {
+    width: 100%;
+    background-color: rgb(233, 233, 233);
+    border: 1px #bbb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+}
+
+.search>img {
+    position: absolute;
+    width: 5%;
+    top: 10px;
+    right: 12px;
+    margin: 0;
+}
+
+.icons {
+    position: relative;
+    right: 100px;
+    display: flex;
+    padding: 15px;
+}
+
+.icons>li>a {
+    padding: 10px;
+}
+
+/* 네비바 끝 */
+/* 프로필 시작 */
+.upper {
+    margin-top: 100px;
+    margin-bottom: 50px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.pf_img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-right:100px
+}
+
+.uppper_right {     /* 프로필 내용 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.user_id {
+    font-size: 30px;
+}
+.state {        /* 게시물, 팔로워, 팔로우 갯수 포함 */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+.state_num  {
+    color: black;
+    text-decoration: none;
+}
+.state_num:hover {
+    color: black;
+    text-decoration: none;
+}
+.user_name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 프로필과 게시물 사이 경계 */
+.line {
+    margin : auto;
+    width: 1000px
+}
+
+/* 하단 게시글 시작 */
+.bottom {
+    margin-top: 50px;
+}
+.mypage_posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.each-div {
+    display: flex;
+    flex-direction: row;
+}
