@@ -13,21 +13,29 @@ def home():
 	return render_template('index.html')
 
 
+@app.route('/signup')
+def signup():
+	return render_template('sign-up.html')
+
+
 # user ###########################################
 
-@app.route("/mars", methods=["POST"])
-def user_info(): # 회원정보 입력(회원가입 -> 이름 아이디어좀 ㅎ)
-	insta_id_receive = request.form['insta_id_give']
+@app.route("/signup", methods=["POST"])
+def sign_up(): # 회원정보 입력(회원가입 -> 이름 아이디어좀 ㅎ)
+	contact_receive = request.form['contact_give']
+	if '@' in contact_receive:
+		email_receive = request.form['contact_give'] # 핸드폰 번호는 어떻게 처리?
+	else:
+		phone_num_receive = request.form['contact_give']
 	name_receive = request.form['name_give']
-	phone_num_receive = request.form['phone_num_give']
-	email_receive = request.form['email_give']
+	insta_id_receive = request.form['insta_id_give']
 	password_receive = request.form['password_give']
 
 	doc = { # db에 입력되는 user의 정보
-		'insta_id': insta_id_receive,
-		'name': name_receive,
 		'phone_num': phone_num_receive,
 		'email': email_receive,
+		'name': name_receive,
+		'insta_id': insta_id_receive,
 		'password': password_receive
 	}
 
@@ -128,7 +136,7 @@ def following_info(): # 팔로잉 정보 입력
 
 	doc = { # db에 입력되는 user의 정보
 		'from_user_id': from_user_id_receive, # 로그인한 아이디
-		'to_user_id': to_user_id_receive, # 로그인한 아이디가 팔로잉하는 아이디
+		'to_user_id': to_user_id_receive # 로그인한 아이디가 팔로잉하는 아이디
 	}
 
 	db.following_info.insert_one(doc)
@@ -142,7 +150,7 @@ def follower_info(): # 팔로잉 정보 입력
 
 	doc = { # db에 입력되는 user의 정보
 		'from_user_id': from_user_id_receive,
-		'to_user_id': to_user_id_receive,
+		'to_user_id': to_user_id_receive
 	}
 
 	db.follower_info.insert_one(doc)
