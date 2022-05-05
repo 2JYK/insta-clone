@@ -1,26 +1,42 @@
 /*      뷰포트 최소 브라우저 기기 사이즈가 420px 최고는 1200px 이상     */
 /*      min: 모바일 퍼스트 | max: 데스크탑 퍼스트        */
-/*@media (min-width: 992px) and (max-width: 1199px) { }*/
+@media (min-width: 992px) and (max-width: 1199px) { }
 
-
+/*      전체 배경 애니메이션 효과      */
+@keyframes body {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
 
 /*      전체 설정 : 배경, li 태그, 정렬       */
 body {
-    background: #121111;
+    background: linear-gradient(
+    to right, #c6d1ef,
+        #6a94ac, #10a298, #a1b3cb, #0b56a2, #2cd3c8);
+    background-size: 400% 400%;
+    animation: body 10s infinite ease-in-out;
+
     list-style: none;
-    margin: 0;
-    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
-/*      네이비박스 설정 : 배경, 사이즈, 테두리, 정렬     */
+/*      박스 설정 : 배경, 사이즈, 테두리, 정렬     */
 .all_content {
     background: #0c162d;
     opacity: 70%;
 
-    max-width: 340px;
+    max-width: 320px;
     height: 460px;
     border: 0.5px solid #afeeee;
-    border-radius: 3%;
+    border-radius: 12px;
     padding: 15px;
 
     display: flex;
@@ -28,8 +44,10 @@ body {
     align-items: center;
 
     vertical-align: middle;
-    margin: auto;
-    margin-top: 20%;
+    margin: 10% auto;
+
+    flex: auto;
+    justify-content: center; !important
 }
 
 /*      로고 : 사이즈, 테두리, 정렬       */
@@ -38,15 +56,14 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 100%;
-
-    margin: 20px;
 }
 
 /*      회원정보 입력 & 푸시 : 테두리, 정렬      */
 .user_signup {
     padding: 17px;
-    text-align: center;
     border: none;
+    text-align: center;
+    margin-top: 15px;
 }
 
 /*회원정보 입력 & 푸시 : li*/
@@ -66,7 +83,7 @@ body {
     text-align: center;
 }
 
-/*      Sign up : 색상, 사이즈, 정렬, 포인트효과        */
+/*      Sign up : 색상, 사이즈, 정렬, 포인트-박스효과        */
 .user-signup_btn {
     border: 0.5px solid #afeeee;
     color: #d0ff00;
@@ -78,13 +95,31 @@ body {
     padding: 7px;
 
     text-align: center;
+
     cursor: pointer;
+
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 3px solid #3c67e3;
+    border-radius: 10px;
+}
+
+/*      Sign up 박스 효과 */
+.user-signup_btn:hover {
+    animation: pulsate 1s ease-in-out;
+}
+@keyframes pulsate {
+    0%{
+        box-shadow:
+        0 0 25px #5ddcff;
+    }
 }
 
 /*      [로그인]화면으로 이동 : 색상, 테두리, 정렬     */
 /*      Log in 폰트 스타일은 sign-up.html에 있음     */
 footer {
-    margin: 10px;
     text-align: center;
     color: #fffff0;
     border-radius: 12px;
@@ -92,7 +127,6 @@ footer {
     padding: 7px;
 
     margin: 30px;
-    text-align: center;
 }
 
 /*      placeholder : 폰트 색상, 크기       */
@@ -100,3 +134,8 @@ footer {
     color : #d0ff00;
     font-size: 12px;
 }
+
+
+
+
+
