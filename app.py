@@ -41,7 +41,7 @@ def sign_up(): 									# 회원 가입
 				phone_num_receive = request.form['contact_give'].replace('-', '')		#phone_num_receive에 넣어 준다. '-'는 공란처리
 				break																	#성공시 break.
 			else:
-			return jsonify({'msg': '이메일 또는 핸드폰번호 11자리를 입력해주세요🥰'})				#아니라면 해당 메세지 alert. 다시 쓸 수 있도록 유도
+				return jsonify({'msg': '이메일 또는 핸드폰번호 11자리를 입력해주세요🥰'})				#아니라면 해당 메세지 alert. 다시 쓸 수 있도록 유도
 
 		elif '-' not in contact_receive:												#콘텍트 값에 '-'가 포함되지 않을 경우
 			if len(contact_receive) == 11:												#그 값의 길이가 11 이라면
@@ -49,13 +49,13 @@ def sign_up(): 									# 회원 가입
 				break																	#성공시 break.
 			else:
 				return jsonify({'msg': '이메일 또는 핸드폰번호 11자리를 입력해주세요🥰'})			#아니라면 해당 메세지 alert. 다시 쓸 수 있도록 유도
-		else:
-			return jsonify({'msg': '이메일 또는 핸드폰번호 11자리를 입력해주세요🥰'})				#if, elif에 해당이 되지 않는 콘텍트 값이 입력될 경우, 해당 메세지 alert. 다시 쓸 수 있도록 유도
+		else:																			#if, elif에 해당이 되지 않는 콘텍트 값이 입력될 경우,
+			return jsonify({'msg': '이메일 또는 핸드폰번호 11자리를 입력해주세요🥰'})				#해당 메세지 alert. 다시 쓸 수 있도록 유도
 	name_receive = request.form['name_give']
 	insta_id_receive = request.form['insta_id_give']
 	password_receive = request.form['password_give']
 
-	doc = { # db에 입력되는 user의 정보
+	doc = { 											# db에 입력되는 user의 정보
 		'phone_num': phone_num_receive,
 		'email': email_receive,
 		'name': name_receive,
@@ -63,7 +63,7 @@ def sign_up(): 									# 회원 가입
 		'password': password_receive
 	}
 
-	db.user_info.insert_one(doc)
+	db.user_info.insert_one(doc)						# user_info 라는 db에 / 딕셔너리 형식으로 / 회원정보 저장!
 	return jsonify({'msg': '회원가입 완료!'})
 
 
