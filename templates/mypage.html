@@ -35,6 +35,55 @@
 
     <link rel="stylesheet" href="../static/css/mypage.css">
 
+    <script>
+
+        $(document).ready(function () {
+            show_insta_id()
+        });
+
+       {#function give_photo() {#}
+       {#     const pf_img = $('#img').src;#}
+       {#     console.log(pf_img)#}
+       {##}
+       {#     $.ajax({#}
+       {#         type: 'POST',#}
+       {#         url: '/mypage',#}
+       {#         data: {pf_img_give: pf_img},#}
+       {#         success: function (response) {#}
+       {#             alert(response['msg'])#}
+       {#             window.location.reload();#}
+       {#         }#}
+       {#     });#}
+       {# }#}
+
+        function show_insta_id() {
+            $.ajax({
+                type: 'GET',
+                {#경로 설정에서 자꾸 에러가 발생해 mypage 뒤에 경로를 하나 더 추가해주었다.#}
+                url: '/mypage/user',
+                data: {},
+                success: function (response) {
+                    const prof_name = response['user_info_list']
+
+                    const name = prof_name[0]['name']
+                    const insta_id = prof_name[0]['insta_id']
+
+                    let temp_html = `<div class="user_id">${insta_id}</div>
+                                             <div>
+                                                 <div class="state">
+                                                     <div><a class="state_num" href="">게시물 81</a></div>
+                                                     <div><a class="state_num" href="">팔로워 251</a></div>
+                                                     <div><a class="state_num" href="">팔로우 271</a></div>
+                                                 </div>
+                                             </div>
+                                         <div class="user_name">${name}</div>`
+                    $('#uppper_right').append(temp_html);
+
+                }
+            })
+        };
+    </script>
+
 </head>
 
 <body>
@@ -44,8 +93,7 @@
         <!----------- 로고 ------->
         <div class="logo">
             <a href="">
-                <img alt="Instagram" src="../static/img/insta1.png"
-                     srcset="/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x">
+                <img alt="Instagram" src="../static/img/insta1.png">
             </a>
         </div>
 
@@ -73,17 +121,7 @@
         <div>
             <img class ="pf_img" src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
         </div>
-        <div class="uppper_right">
-            <div class="user_id">kksu_97</div>
-            <div>
-                <div class="state">
-                    <div><a class="state_num" href="">게시물 81</a></div>
-                    <div><a class="state_num" href="">팔로워 251</a></div>
-                    <div><a class="state_num" href="">팔로우 271</a></div>
-                </div>
-            </div>
-            <div class="user_name">김경수</div>
-        </div>
+            <div class="uppper_right" id="uppper_right"></div>
     </div>
     <hr class="line">
 

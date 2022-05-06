@@ -51,7 +51,7 @@ def sign_up(): 									# 회원 가입
 	email_receive = ''							# 변수를 공란으로 만들어 아래의 if문을 돌릴 때 사용
 	phone_num_receive = ''
 
-	domain_list=['naver','kakao','gmail','daum','hanmail']
+	domain_list=['naver.com','kakao.com','gmail.com','daum.net','hanmail.net']
 
 	while True:
 		contact_receive = request.form['contact_give']						#콘텍트(입력된 값) 값은 하난데, 이메일과 폰번호 중 하나로 들어가기에 밑에 if문을 사용함
@@ -159,13 +159,10 @@ def api_valid():
 		return jsonify({'result': 'fail', 'msg': '로그인 정보가 존재하지 않습니다.'})
 
 
-
-
-
 # profile ###########################################
 
 
-@app.route("/mars", methods=["POST"])
+@app.route("/mypage", methods=["POST"])
 def profile_info(): # 프로필 정보
 	pf_img_receive = request.form['pf_img_give']
 
@@ -177,13 +174,12 @@ def profile_info(): # 프로필 정보
 	return jsonify({'msg': '프로필 작성 완료!'}) # 굳이 필요한가?
 
 
-@app.route("/mars", methods=["GET"]) # user_info + post + 프로필사진!!!!!!!!!!!!!!!
+@app.route("/mypage/user", methods=["GET"]) # user_info + post + 프로필사진!!!!!!!!!!!!!!!
 def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
-	user_info_list = list(db.userinfo.find({'insta_id, name'}, {'phone_num', 'email', 'password'}))
-	post_list = list(db.postinfo.find({'post_id'}, {'location', 'photo', 'heart_cnt', 'post_desc', 'post_data'}))
-	prof_list = list(db.profileinfo.find({}, {'_id': False}))
+	user_info_list = list(db.user_info.find({}, {'_id': False}))
+	# post_list = list(db.post_info.find({}, {'_id': False}))
 	# follow, following 에서도 숫자 받아와야지 len
-	return jsonify({'prof_name': user_info_list, 'post_cnt': len(post_list), 'profile_img': prof_list})
+	return jsonify({'result' : 'success','user_info_list': user_info_list})
 
 
 # post ###########################################
