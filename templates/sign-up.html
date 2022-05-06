@@ -24,7 +24,7 @@
                 data: {contact_give: contact, name_give: name, insta_id_give: insta_id, password_give: password},
                 success: function (response) {
                     alert(response['msg'])
-                    window.location.reload();
+                    window.location.href = '/login';
                 }
             });
 
