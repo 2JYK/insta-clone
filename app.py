@@ -117,7 +117,7 @@ def api_login():
 		# exp에는 만료시간을 넣어줍니다. 만료시간이 지나면, 시크릿키로 토큰을 풀 때 만료되었다고 에러가 납니다.
 		payload = {
 			'id': insta_id_receive,
-			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=180)		# 라이브러리 이용해서 활성화 완료 판단은 안됨xxxx
+			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=180)		# 라이브러리 이용해서 활성화 완료 일단은 안됨xxxx
 		}
 		token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
