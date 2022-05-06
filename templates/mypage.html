@@ -35,54 +35,6 @@
 
     <link rel="stylesheet" href="../static/css/mypage.css">
 
-    <script>
-
-        $(document).ready(function () {
-            show_insta_id()
-        });
-
-       {#function give_photo() {#}
-       {#     const pf_img = $('#img').src;#}
-       {#     console.log(pf_img)#}
-       {##}
-       {#     $.ajax({#}
-       {#         type: 'POST',#}
-       {#         url: '/mypage',#}
-       {#         data: {pf_img_give: pf_img},#}
-       {#         success: function (response) {#}
-       {#             alert(response['msg'])#}
-       {#             window.location.reload();#}
-       {#         }#}
-       {#     });#}
-       {# }#}
-
-        function show_insta_id() {
-            $.ajax({
-                type: 'GET',
-                {#경로 설정에서 자꾸 에러가 발생해 mypage 뒤에 경로를 하나 더 추가해주었다.#}
-                url: '/mypage/user',
-                data: {},
-                success: function (response) {
-                    const prof_name = response['user_info_list']
-
-                    const name = prof_name[0]['name']
-                    const insta_id = prof_name[0]['insta_id']
-
-                    let temp_html = `<div class="user_id">${insta_id}</div>
-                                             <div>
-                                                 <div class="state">
-                                                     <div><a class="state_num" href="">게시물 81</a></div>
-                                                     <div><a class="state_num" href="">팔로워 251</a></div>
-                                                     <div><a class="state_num" href="">팔로우 271</a></div>
-                                                 </div>
-                                             </div>
-                                         <div class="user_name">${name}</div>`
-                    $('#uppper_right').append(temp_html);
-
-                }
-            })
-        };
-    </script>
 
 </head>
 
@@ -93,7 +45,8 @@
         <!----------- 로고 ------->
         <div class="logo">
             <a href="">
-                <img alt="Instagram" src="../static/img/insta1.png">
+                <img alt="Instagram" src="../static/img/insta1.png"
+                     srcset="/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x">
             </a>
         </div>
 
@@ -105,12 +58,12 @@
 
         <nav>
             <ul class="icons">
-                <li><a href="/"><i class="fa-solid fa-house fa-xl"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-house fa-xl"></i></a></li>
                 <li><a href="#"><i class="fa-regular fa-paper-plane fa-xl"></i></a></li>
                 <li><a href="#"><i class="fa-regular fa-square-plus fa-xl"></i></a></li>
                 <li><a href="#"><i class="fa-regular fa-compass fa-xl"></i></a></li>
                 <li><a href="#"><i class="fa-regular fa-heart fa-xl"></i></a></li>
-                <li><a href="/mypage"><i class="fa-solid fa-circle-user fa-xl"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-circle-user fa-xl"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -121,7 +74,17 @@
         <div>
             <img class ="pf_img" src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
         </div>
-            <div class="uppper_right" id="uppper_right"></div>
+        <div class="uppper_right">
+            <div class="user_id">kksu_97</div>
+            <div>
+                <div class="state">
+                    <div><a class="state_num" href="">게시물 81</a></div>
+                    <div><a class="state_num" href="">팔로워 251</a></div>
+                    <div><a class="state_num" href="">팔로우 271</a></div>
+                </div>
+            </div>
+            <div class="user_name">김경수</div>
+        </div>
     </div>
     <hr class="line">
 
@@ -139,38 +102,74 @@
                     <div id="modal" class="modal">
                         <div class="modal_box">
                             <div class="modal_left">
-                                <img alt="" src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
-                                         style="width: 750px; height: 760px;">
+                                <img alt=""
+                                     src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
+                                     style="width: 750px; height: 760px;">
                             </div>
                             <div class="modal_right">
-                                        <!--  modal 안에 있는 게시물 작성자-->
+                                <!--  modal 안에 있는 게시물 작성자-->
                                 <div class="modal_pf">
-                                    <div><img style="width: 40px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512"></div>
+                                    <div><img style="width: 40px; border-radius: 50%"
+                                              src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
+                                    </div>
                                     <div class="modal_pf_name">kksu_97</div>
+                                    <div class="modal_close" id="modal_close"><span>X</span></div>
                                 </div>
                                 <!--  modal 안에 있는 게시물 설명-->
                                 <div class="modal_desc">
-                                    <div><img style="width: 40px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512"></div>
+                                    <div><img style="width: 40px; border-radius: 50%"
+                                              src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
+                                    </div>
                                     <div class="modal_pf_name">kksu_97</div>
-                                    <div class="modal_desc_wrtie">라이언 너무 귀엽다. 라이언 만세!!!!! #라이언 </div>
+                                    <div class="modal_desc_wrtie">라이언 너무 귀엽다. 라이언 만세!!!!! #라이언</div>
                                 </div>
-                                <!--  게시물에 달린 댓글 시작-->
-                                <div class="modal_comment">
-                                    <div><img style="width: 40px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U03A0MUBSQH-0e4deb8911e1-512"></div>
-                                    <div class="modal_pf_name">juhyun.1011</div>
-                                    <div class="modal_desc_wrtie">우와. 라이언 잘 보고 갑니다!</div>
-                                </div>
-                                <div class="modal_comment">
-                                    <div><img style="width: 40px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U039VKKRRF1-67b76fd7ee7b-512"></div>
-                                    <div class="modal_pf_name">abcedtgollum</div>
-                                    <div class="modal_desc_wrtie">제가 더 귀엽네요 ^^</div>
+                                <!--  modal 게시물에 달린 댓글 시작-->
+                                <div>
+                                    <div class="show_comment">
+                                        <div><img style="width: 40px; border-radius: 50%"
+                                                  src="https://ca.slack-edge.com/T039CS8AH0D-U03A0MUBSQH-0e4deb8911e1-512">
+                                        </div>
+                                        <div class="modal_pf_name">juhyun.1011</div>
+                                        <div class="modal_desc_wrtie">우와. 라이언 잘 보고 갑니다!</div>
+                                    </div>
+                                    <div class="show_comment">
+                                        <div><img style="width: 40px; border-radius: 50%"
+                                                  src="https://ca.slack-edge.com/T039CS8AH0D-U039VKKRRF1-67b76fd7ee7b-512">
+                                        </div>
+                                        <div class="modal_pf_name">abcedtgollum</div>
+                                        <div class="modal_desc_wrtie">제가 더 귀엽네요 ^^</div>
+                                    </div>
                                 </div>
                                 <div>
-
+                                    <div class="icon_box">
+                                        <div class="modal_icon">
+                                            <i class="fa-regular fa-heart fa-lg"></i>
+                                            <i class="fa-regular fa-comment-dots fa-lg"></i>
+                                            <i class="fa-regular fa-paper-plane fa-lg"></i>
+                                        </div>
+                                        <div class="modal_like">
+                                            <img style="width: 25px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U03A0MUBSQH-0e4deb8911e1-512">
+                                            <span class="bold">juhyun.1011</span>님 외 <span class="bold">34</span>명이 좋아합니다.
+                                        </div>
+                                        <div class="modal_time">
+                                            3시간 전
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="write_comment">
+                                    <div class="emogi">
+                                        <i style="width: 40px; height: 40px" class="fa-regular fa-face-grin"></i>
+                                    </div>
+                                    <div class="write">
+                                        <input style="border: transparent;outline: none; width: 460px;" placeholder="댓글 달기...">
+                                    </div>
+                                    <div class="register">
+                                        게시
+                                    </div>
+                                </div>
+                             </div>
                         </div>
-                        <div class="modal_close" id="modal_close"><span>XXXXXX</span></div>
+
                     </div>
                     <!-- Modal End -->
                 </div>
@@ -190,6 +189,7 @@
                                 <div class="modal_pf">
                                     <div><img style="width: 40px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512"></div>
                                     <div class="modal_pf_name">kksu_97</div>
+                                    <div class="modal_close" id="modal_close2"><span>X</span></div>
                                 </div>
                                 <!--  modal 안에 있는 게시물 설명-->
                                 <div class="modal_desc">
@@ -198,22 +198,19 @@
                                     <div class="modal_desc_wrtie">맥북 갖고 싶다ㅠㅠ 대근이형 사주세요..</div>
                                 </div>
                                 <!--  게시물에 달린 댓글 시작-->
-                                <div class="modal_comment">
+                                <div class="show_comment">
                                     <div><img style="width: 40px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U039AJZCWUE-1898f77216d4-512"></div>
                                     <div class="modal_pf_name">daegeunziii</div>
                                     <div class="modal_desc_wrtie">그래, 내가 사줄게!</div>
                                 </div>
-                                <div class="modal_comment">
+                                <div class="show_comment">
                                     <div><img style="width: 40px; border-radius: 50%" src="https://ca.slack-edge.com/T039CS8AH0D-U03A07H489F-8d51d3be93c5-512"></div>
                                     <div class="modal_pf_name">sugi.kr</div>
                                     <div class="modal_desc_wrtie">아니야, 내가 사줄게!!</div>
                                 </div>
-                                <div>
 
-                                </div>
                             </div>
                         </div>
-                        <div class="modal_close" id="modal_close2"><span>XXXXXX</span></div>
                     </div>
                     <!-- Modal End -->
                 </div>
@@ -268,8 +265,6 @@
 
         </div>
     </div>
-
-
 
 <script src="../static/js/mypage-jquery.js"></script>
 </body>
