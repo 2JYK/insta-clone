@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from pymongo import MongoClient
+
+import jwt, datetime, hashlib
 
 app = Flask(__name__)
 
@@ -7,15 +9,36 @@ client = MongoClient('localhost', 27017)
 
 db = client.dbsparta
 
+SECRET_KEY = 'ABCD'
 
 @app.route('/')
 def home():
-	return render_template('index.html')
+	# 현재 이용자의 컴퓨터에 저장된 cookie 에서 mytoken 을 가져 옴.
+	token_receive = request.cookies.get('mytoken')
+	try:
+		# 암호화되어있는 token의 값을 우리가 사용할 수 있도록 디코딩(암호화 풀기)해줌
+		payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+		user_info = db.user_info.find_one({"id": payload['id']})
+		return render_template('index.html', nickname=user_info["nick"])
+	# 만약 해당 token의 로그인 시간이 만료되었다면, 아래와 같은 코드를 실행.
+	except jwt.ExpiredSignatureError:
+		return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+	except jwt.exceptions.DecodeError:
+		# 만약 해당 token이 올바르게 디코딩되지 않는다면, 아래와 같은 코드를 실행.
+		return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
 
+@app.route('/mypage')
+def mypage():
+   return render_template('mypage.html')
 
 @app.route('/signup')
 def signup():
 	return render_template('sign-up.html')
+
+@app.route('/login')
+def login():
+	msg = request.args.get("msg")
+	return render_template('log-in.html', msg=msg)
 
 
 # user ###########################################
@@ -55,16 +78,55 @@ def sign_up(): 									# 회원 가입
 	insta_id_receive = request.form['insta_id_give']
 	password_receive = request.form['password_give']
 
+	password_hash_receive = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
+
+
 	doc = { 											# db에 입력되는 user의 정보
 		'phone_num': phone_num_receive,
 		'email': email_receive,
 		'name': name_receive,
 		'insta_id': insta_id_receive,
-		'password': password_receive
+		'password': password_hash_receive
 	}
 
 	db.user_info.insert_one(doc)						# user_info 라는 db에 / 딕셔너리 형식으로 / 회원정보 저장!
 	return jsonify({'msg': '회원가입 완료!'})
+
+
+# 로그인 ###########################################
+
+# id, pw를 받아서 맞춰보고, 토큰을 만들어 발급.
+@app.route('/login', methods=['POST'])
+def api_login():
+	insta_id_receive = request.form['insta_id_give']
+	password_receive = request.form['password_give']
+
+	# 회원가입 때와 같은 방법으로 pw를 암호화 실행.
+	password_hash_receive = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
+
+	# id, 암호화된pw을 가지고 해당 유저를 찾음.
+	result = db.user_info.find_one({'insta_id': insta_id_receive, 'password': password_hash_receive})
+
+	# 찾으면 JWT 토큰을 만들어 발급.
+	if result is not None:
+		# JWT 토큰에는, payload와 시크릿키가 필요합니다.
+		# 시크릿키가 있어야 토큰을 디코딩(=암호화 풀기)해서 payload 값을 볼 수 있습니다.
+		# 아래에선 id와 exp를 담았습니다. 즉, JWT 토큰을 풀면 유저ID 값을 알 수 있습니다.
+		# exp에는 만료시간을 넣어줍니다. 만료시간이 지나면, 시크릿키로 토큰을 풀 때 만료되었다고 에러가 납니다.
+		payload = {
+			'id': insta_id_receive,
+			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=180)
+		}
+		token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+
+		# token을 주고.
+		return jsonify({'result': 'success', 'token': token})
+	# 찾지 못하면
+	else:
+		return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
+
+
+
 
 
 # profile ###########################################
