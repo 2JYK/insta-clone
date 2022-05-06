@@ -124,6 +124,80 @@ header {
     width: 1000px
 }
 
+/* Modal 시작 */
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_box {
+    text-align: center;
+    max-width: 1300px;
+    height: 760px;
+    margin: 30px auto;
+
+    background-color: white;
+}
+.modal_left {
+    float: left;
+    background-color: dodgerblue;
+    width: 750px;
+    z-index: 20;
+}
+.modal_right {
+    float: right;
+    width: 550px;
+}
+.modal_close{
+    float: right;
+    background-color:darkblue;
+}
+/* 모달 오른쪽 내용물 시작 */
+
+/* 모달 안에 있는 게시물 작성자 */
+.modal_pf {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+    height : 70px;
+    border-bottom: lightgray 1px solid;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.modal_pf_name {
+    padding-top: 7px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+/* 모달 안에 있는 게시물 설명 */
+.modal_desc {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    padding-top: 20px;
+    padding-left: 15px;
+}
+.modal_desc_wrtie {
+    padding-top: 7px;
+    padding-left: 7px;
+}
+
+/* 게시물에 달린 댓글 시작 */
+.modal_comment {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+    height : 70px;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
+
+
 /* 하단 게시글 시작 */
 .bottom {
     margin-top: 50px;
@@ -133,8 +207,12 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    max-width: 1000px;
+    margin: auto;
 }
 .each-div {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
