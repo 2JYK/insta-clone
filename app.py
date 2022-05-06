@@ -18,7 +18,9 @@ def home():
 	try:
 		# 암호화되어있는 token의 값을 우리가 사용할 수 있도록 디코딩(암호화 풀기)해줌
 		payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-		user_info = db.user_info.find_one({"id": payload['id']})
+		print(payload)
+		user_info = db.user_info.find_one({"insta_id": payload['id']})
+		print(user_info)
 		return render_template('index.html', user_name=user_info["name"])
 	# 만약 해당 token의 로그인 시간이 만료되었다면, 아래와 같은 코드를 실행.
 	except jwt.ExpiredSignatureError:
@@ -115,7 +117,7 @@ def api_login():
 		# exp에는 만료시간을 넣어줍니다. 만료시간이 지나면, 시크릿키로 토큰을 풀 때 만료되었다고 에러가 납니다.
 		payload = {
 			'id': insta_id_receive,
-			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=180)
+			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=180)		# 라이브러리 이용해서 활성화 완료 판단은 안됨xxxx
 		}
 		token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
@@ -147,8 +149,9 @@ def api_valid():
 
 		# payload 안에 id가 들어있습니다. 이 id로 유저정보를 찾습니다.
 		# 여기에선 그 예로 닉네임을 보내주겠습니다.
-		userinfo = db.user_info.find_one({'id': payload['id']}, {'_id': 0})
+		userinfo = db.user_info.find_one({'insta_id': payload['id']}, {'_id': 0})
 		return jsonify({'result': 'success', 'user_name': userinfo['name']})
+
 	except jwt.ExpiredSignatureError:
 		# 위를 실행했는데 만료시간이 지났으면 에러가 납니다.
 		return jsonify({'result': 'fail', 'msg': '로그인 시간이 만료되었습니다.'})
