@@ -162,7 +162,7 @@ def api_valid():
 # profile ###########################################
 
 
-@app.route("/mypage", methods=["POST"])
+@app.route("/mypage/user", methods=["POST"])
 def profile_info(): # 프로필 정보
 	pf_img_receive = request.form['pf_img_give']
 
@@ -179,19 +179,19 @@ def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 	user_info_list = list(db.user_info.find({}, {'_id': False}))
 	# post_list = list(db.post_info.find({}, {'_id': False}))
 	# follow, following 에서도 숫자 받아와야지 len
-	return jsonify({'result' : 'success','user_info_list': user_info_list})
+	return jsonify({'result': 'success','user_info_list': user_info_list})
 
 
 # post ###########################################
-
+# 게시글 순서 : +버튼 클릭 -> 사진 드래그해서 등록 -> 문구 입력, 위치 추가 -> '공유하기' 버튼 눌러서 등록
 
 @app.route("/mars", methods=["POST"])
-def post_info(): # 포스팅 정보 입력
+def posting(): # 포스팅 정보 입력
 	location_receive = request.form['location_give']
 	photo_receive = request.form['photo_give']
 	post_desc_receive = request.form['post_desc_give']
 	post_date_receive = request.form['post_date_give']
-	heart_cnt_receive = request.form['heart_cnt_give'] # 리스트로 만들고 싶음/ 하나의 게시글에 여러 개의 하트가 달리니까
+	heart_cnt_receive = request.form['heart_cnt_give'] # 좋아요를 누른 사람들의 리스트?
 
 	doc = { # db에 입력되는 user의 정보
 		'location': location_receive,
@@ -216,18 +216,18 @@ def post_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 # comment ###########################################
 
 
-@app.route("/mars", methods=["POST"])
+@app.route("/mypage/comment", methods=["POST"])
 def comment_info(): # 포스팅 정보 입력
 	cm_writer_receive = request.form['cm_writer']
 	cm_receive = request.form['cm_give']
-	cm_date_receive = request.form['cm_date_give']
-	cm_heart_receive = request.form['cm_haert_give'] # 리스트로 만들고 싶음/ 하나의 게시글에 여러 개의 하트가 달리니까
+	# cm_date_receive = request.form['cm_date_give']
+	# cm_heart_receive = request.form['cm_heart_give'] # 리스트로 만들고 싶음/ 하나의 게시글에 여러 개의 하트가 달리니까
 
 	doc = { # db에 입력되는 user의 정보
 		'cm_writer': cm_writer_receive,
 		'cm': cm_receive,
-		'cm_date': cm_date_receive,
-		'cm_heart': cm_heart_receive,
+		# 'cm_date': cm_date_receive,
+		# 'cm_heart': cm_heart_receive,
 	}
 
 	db.comment_info.insert_one(doc)
@@ -235,10 +235,12 @@ def comment_info(): # 포스팅 정보 입력
 	return jsonify({'msg': '댓글작성 완료!'})
 
 
-@app.route("/mars", methods=["GET"])
+@app.route("/mypage/comment", methods=["GET"])
 def comment_output():  # post의 id를 가져와 어떤 게시글인지 확인하고, 그곳에 대한 댓글을 사용자에게 제시해줌s
-	post_info_list = list(db.postinfo.find({}, {'location', 'photo', 'heart_cnt', 'post_desc', 'post_date'}))
-	return jsonify({'post_info': post_info_list})
+	# post_info_list = list(db.post_info.find({}, {'location', 'photo', 'heart_cnt', 'post_desc', 'post_date'}))
+	comment_info_list = list(db.comment_info.find({}, {'_id': False}))
+	return jsonify({'comment_info': comment_info_list})
+# 'post_info': post_info_list,
 
 
 # following & follower ###########################################

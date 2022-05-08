@@ -91,7 +91,7 @@ header {
     margin-right:100px
 }
 
-.uppper_right {     /* 프로필 내용 */
+.upper_right {     /* 프로필 내용 */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -186,7 +186,7 @@ header {
     padding-top: 20px;
     padding-left: 15px;
 }
-.modal_desc_wrtie {
+.modal_desc_write {
     padding-top: 7px;
     padding-left: 7px;
 }
@@ -235,6 +235,8 @@ header {
 .register {
     font-weight: bold;
     color: dodgerblue;
+    border: none;
+    background-color: transparent;
 }
 
 /* 하단 게시글 시작 */
