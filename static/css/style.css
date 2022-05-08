@@ -14,7 +14,7 @@ body {
 
 header {
     position: fixed;
-    z-index: 8;
+    z-index: 5;
     top: 0;
     left: 0;
     right: 0;
@@ -44,7 +44,7 @@ header {
     width: 26%;
 }
 
-.search>input {
+.search > input {
     width: 100%;
     background-color: rgb(233, 233, 233);
     border: 1px #bbb;
@@ -53,7 +53,7 @@ header {
     font-size: 12px;
 }
 
-.search>img {
+.search > img {
     position: absolute;
     width: 5%;
     top: 10px;
@@ -68,8 +68,9 @@ header {
     padding: 15px;
 }
 
-.icons>li>a {
+.icons > li > a {
     padding: 10px;
+    cursor: pointer;
 }
 
 /* 네비바 끝 */
@@ -117,7 +118,7 @@ footer {
 
 }
 
-.side-change>a {
+.side-change > a {
     color: #0096f6;
     text-decoration: none;
 }
@@ -130,12 +131,12 @@ footer {
     padding-bottom: 7%;
 }
 
-.side-2>span {
+.side-2 > span {
     font-weight: bolder;
     color: #8E8E8E;
 }
 
-.side-2>a {
+.side-2 > a {
     text-decoration: none;
     color: black;
 }
@@ -212,7 +213,7 @@ footer {
     background-color: white;
 }
 
-.story_02>a {
+.story_02 > a {
     text-decoration: none;
 }
 
@@ -311,8 +312,6 @@ footer {
 }
 
 
-
-
 /* 모달 start */
 
 .container {
@@ -328,7 +327,7 @@ footer {
 }
 
 .modal-icon {
-    float: right;          /* ? 왜 표시가 뜨지  왜에에에엥[ㅇ[ㅇ[[[[[ㅔ*/
+    float: right; /* ? 왜 표시가 뜨지  왜에에에엥[ㅇ[ㅇ[[[[[ㅔ*/
 
     display: inline-block;
     width: 35px;
@@ -389,7 +388,7 @@ footer {
     color: red;
 }
 
-.body-contentbox>div {
+.body-contentbox > div {
     border-bottom: 1px solid #dddbdb;
     width: auto;
     text-align: center;
@@ -414,4 +413,61 @@ footer {
 }
 
 
-/* 모달 start */
+/* feed modal start */
+.modal_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal_window {
+    background: white;
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 800px;
+    height: 600px;
+    position: relative;
+    padding: 10px;
+}
+
+.modal_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.modal_title_side {
+    flex: 0 0 40px;
+    text-align: center;
+}
+
+.modal_img {
+    outline: 2px dashed black;
+    outline-offset: -10px;
+    text-align: center;
+    transition: all .15s ease-in-out;
+
+    background-image: url("../img/space.jpg");
+    background-position: center;
+    background-size: cover;
+
+    width: 780px;
+    height: 548px;
+}
+
+.material_close {
+    cursor: pointer;
+}
