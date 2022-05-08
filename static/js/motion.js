@@ -129,9 +129,9 @@ buttonCloseModal.addEventListener("click", e => {
     console.log(window.pageYOffset + " 좌표"); // 로그 찍기
 });
 
-<!-- jquery 부분 -->
+// <!-- jquery 부분 -->
 
-$('.modal_image_upload')
+$('.modal_img')
     .on("dragover", dragOver)
     .on("dragleave", dragOver)
     .on("drop", uploadFiles);
