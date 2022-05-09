@@ -58,18 +58,14 @@ function show_insta_id() {
 }
 
 function save_comment() {
-    const cm_writer = $('.user_id').val();
     const cm = $('#cm').val();
-    // const cm_date = $('#').val();
-    // const cm_heart = $('#').val();
+
     $.ajax({
         type: 'POST',
         url: '/mypage/comment',
-        data: {cm_writer_give: cm_writer, cm_give: cm},
+        data: {cm_give: cm},
         success: function (response) {
-            // cm_date_give: cm_date, cm_heart_give: cm_heart (시간이랑 좋아요 만들면 data에 넣기)
-            // 별 반응은 없고 내가 단 댓글이 댓글창 맨 위로 올라가야 함
-            // 그리고 '게시' 버튼도 버튼으로 바꿔야 하고 그거 누르면 게시될 수 있도록 온클릭 적용해야 함
+
             window.location.reload();
         }
     });
@@ -85,16 +81,14 @@ function show_comment() {
             const comments = response['comment_info']
             console.log(comments)
             for (let i=0; i < comments.length;i++) {
-                const writer = comments[i]['cm_writer']
+                const writer = comments[i]['cm_writer']['insta_id']
                 const comment = comments[i]['cm']
-                // const date = comments[i]['cm_date']
-                // const heart_cnt = comments[i]['cm_heart']
 
                 const temp_html = `<div class="show_comment">
                                         <div><img style="width: 40px; border-radius: 50%"
                                                   src="https://ca.slack-edge.com/T039CS8AH0D-U03A0MUBSQH-0e4deb8911e1-512">
                                         </div>
-                                        <div class="modal_pf_name" id="cm_writer">${writer}</div>
+                                        <div class="modal_pf_name">${writer}</div>
                                         <div class="modal_desc_wrtie" id="cm">${comment}</div>
 <!--                                        댓글단 시간 측정하는거랑 좋아요 개수에 대한 칸을 만들고 작성해야함!-->
                                     </div>`
