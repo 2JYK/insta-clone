@@ -159,19 +159,28 @@ function uploadFiles(e) {
     e.preventDefault();
 
     e.dataTransfer = e.originalEvent.dataTransfer;
+
     var files = e.dataTransfer.files;
 
     if (files.length > 1) {
-        alert('이미지를 두개 이상은 안올라갑니다~');
+        alert('이미지를 하나만 올리시오.');
         return;
     }
 
     if (files[0].type.match(/image.*/)) {
-        $(e.target).css({
+        $('#feed_modal_in').css({
+            display : 'flex'
+        });
+        $('.modal_img_feed').css({
             "background-image": "url(" + window.URL.createObjectURL(files[0]) + ")",
             "outline": "none",
-            "background-size": "100% 100%"
+            "background-size": "contain",
+            "background-repeat" : "no-repeat",
+            "background-position" : "center"
         });
+        $('#feed_modal').css({
+            display: 'none'
+        })
     } else {
         alert('이미지가 xxxx.');
         return;
@@ -189,3 +198,41 @@ if (e.type == "dragover") {
     "outline-offset": "-10px"
   });
 }
+
+$('#button_write_feed').on('click', ()=>{
+    const image = $('#input_image').css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+    const content = $('#input_content').val();
+    const profile_image = $('#input_profile_image').attr('src');
+    const user_id = $('#input_user_id').text();
+
+    const file = files[0];
+
+    let fd = new FormData();
+
+    fd.append('file', file);
+    fd.append('image', image);
+    fd.append('content', content);
+    fd.append('profile_image', profile_image);
+    fd.append('user_id', user_id);
+
+    if(image.length <= 0)
+    {
+        alert("이미지가 비어있습니다.");
+    }
+    else if(content.length <= 0)
+    {
+        alert("설명을 입력하세요");
+    }
+    else if(profile_image.length <= 0)
+    {
+        alert("프로필 이미지가 비어있습니다.");
+    }
+    else if(user_id.length <= 0)
+    {
+        alert("사용자 id가 없습니다.");
+    }
+    else{
+        writeFeed(fd);
+        console.log(files[0]);
+    }
+});

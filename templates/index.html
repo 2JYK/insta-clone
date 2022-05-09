@@ -56,7 +56,7 @@
 
     <nav>
         <ul class="icons">
-            <li><a href="/"><i class="fa-solid fa-house fa-xl"></i></a></li>
+            <li><a href="/"><i class="fa-solid fa-house fa-xl" id="home"></i></a></li>
             <li><a href="#"><i class="fa-regular fa-paper-plane fa-xl"></i></a></li>
             <li> <a> <i class="fa-regular fa-square-plus fa-xl" id="feed"></i> </a> </li>
             <li><a href="#"><i class="fa-regular fa-compass fa-xl"></i></a></li>
@@ -607,264 +607,69 @@
 
 
 
+<!------------------------    [+] 아이콘 새 게시글 만들기 모달   ------------------------>
+    <div class="modal modal_feed" id="feed_modal">
+      <div class="modal_window">
+        <div class="modal_title">
+          <div class="modal_title_side"></div>
+          <div> ↓↓↓너의 사진 담아봐↓↓↓ </div>
+          <div class="modal_title_side">
+            <span class="modal_close" id="close_modal">
+              X
+            </span>
+          </div>
+        </div>
 
-    <div class="modal_overlay" id="feed_modal">
-        <div class="modal_window">
-            <div class="modal_title">
-                <div class="modal_title_side"></div>
-                <div> 너의 우주를 담아봐 </div>
-                <div class="modal_title_side">
-                    <span class="material_close" id="close_modal">
-                        X
-                    </span>
-                </div>
-            </div>
-				<div class="modal_img">
-
-			 </div>
-			</div>
+        
+        <div class="modal_img">
+        </div>
+      </div>
     </div>
-
-
-
-<!-- <div class="card" id="main-1">
-    <li class="list-group-item">
-        <a href="#">
-            <div class="card_02">
-                <div class="card_img"></div>
-            </div>
-            <div class="card_03">
-                <p class="card_font">king_jun</p>
-            </div>
-        </a>
-
-
-        <div class="container">
-            <div class="modal-box">
-                <div class="modal-icon">
-                    <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
-                </div>
-            </div>
-
-            <div class="popup-wrap" id="popup">
-                <div class="popup">
-                    <div class="popup-body">
-                        <div class="body-content">
-                            <div class="body-contentbox">
-                                <div class="red">신고</div>
-                                <div class="red">팔로우 취소</div>
-                                <div>게시물로 이동</div>
-                                <div>공유 대상...</div>
-                                <div>링크 복사</div>
-                                <div>퍼가기</div>
-                                <div id="close">취소</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img src="../static/img/bikee.jpg" class="card-img-top" alt="bike">
+    
+    <div class="modal modal_feed_in" id="feed_modal_in">
+      <div class="modal_window">
+        <div class="modal_title">
+          <div class="modal_title_side"></div>
+          <div style="margin: 5px"> 새 게시물 </div>
+          <div class="modal_title_side">
+            <span class="modal_close" id="close_modal">
+              X
+            </span>
+          </div>
         </div>
+        <div class="modal_img_content">
+          <div class="modal_img_feed" id="input_image">
+          </div>
 
-        <div class="card-body">
 
 
-            <div class="card-main">
-                <a href="#">
-        <span class="card-title">
-          <i class="fa-regular fa-heart fa-lg"></i>
-          <i class="fa-regular fa-comment-dots fa-lg"></i>
-          <i class="fa-regular fa-paper-plane fa-lg"></i>
-        </span>
-                </a>
-                <span class="card-title2">
-        <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
-      </span>
 
+          <div class="modal_content_write">
+            <div class="modal_name">
+              <div class="profile_box">
+                <img class="profile_img" id="input_profile_image"
+                  src="../static/img/kim.jpg">
+              </div>
+              <span class="modal_name_text" id="input_user_id">
+                kksu_97
+              </span>
             </div>
-            <p class="card-text font">king_junseok 님 외 103명이 좋아합니다</p>
-            <div class="show">
-                <div class="show-2">
-                    정말 정말 정말ㅈ ㅓㅇ말정망ㅈ머알 세차는 너무너무너무너무너무
-                    너무너뭐누머누머ㅜ무 신나요~
-                </div>
+            <div style="height: 440px">
+              <textarea id="input_content" class="feed_content_textarea form-control col-sm-5" rows="10"
+                placeholder="설명을 입력하세요..."></textarea>
             </div>
-            <a href="#">
-                <div class="more"> 3분 전..</div>
-            </a>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-                       placeholder="댓글달기...">
-
-                <button class="card-btn" onclick="save()">
-                    게시
-                </button>
-            </li>
-        </ul>
-</div>
-
-
-<div class="card" id="main-4">
-    <li class="list-group-item">
-        <a href="#">
-            <div class="card_02">
-                <div class="card_img"></div>
+            <div style="width: 100%; text-align: center">
+              <button id="button_write_feed" type="button" class="btn btn-primary" style="width: 268px">
+                공유하기
+              </button>
             </div>
-            <div class="card_03">
-                <p class="card_font">minji_vely</p>
-        </a>
+          </div>
+          </div>
+          
+          </div>
+          </div>
 
 
-        <div class="container">
-            <div class="modal-box">
-                <div class="modal-icon">
-                    <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
-                </div>
-            </div>
-
-            <div class="popup-wrap" id="popup">
-                <div class="popup">
-                    <div class="popup-body">
-                        <div class="body-content">
-                            <div class="body-contentbox">
-                                <div class="red">신고</div>
-                                <div class="red">팔로우 취소</div>
-                                <div>게시물로 이동</div>
-                                <div>공유 대상...</div>
-                                <div>링크 복사</div>
-                                <div>퍼가기</div>
-                                <div id="close">취소</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-</div>
-</li>
-
-<img src="../static/img/dogg.jpg" class="card-img-top" alt="">
-
-<div class="card-body">
-    <div class="card-main">
-        <a href="">
-        <span class="card-title">
-          <i class="fa-regular fa-heart fa-lg"></i>
-          <i class="fa-regular fa-comment-dots fa-lg"></i>
-          <i class="fa-regular fa-paper-plane fa-lg"></i>
-        </span>
-        </a>
-        <span class="card-title2">
-        <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
-      </span>
-    </div>
-    <p class="card-text font">좋아요 5개</p>
-    <div class="show">
-        <div class="show-2">
-            오늘 점심에 강아지를 이발시켰다. 이발 시켰더니 얼굴이 동글동글동글
-            귀도 둥글둥글 코도 동굴동굴동굴 몸통도 빵빵해졌따
-            특히 발이 귀여워졌다 마치 닭발 같다 결정했다 !!
-            오늘은 닭발을 먹어야겠다
-        </div>
-    </div>
-    <a href="#">
-        <div class="more"> 21시간 전..</div>
-    </a>
-</div>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">
-        <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-               placeholder="댓글달기...">
-        <button class="card-btn" onclick="save()">
-            게시
-        </button>
-    </li>
-</ul>
-</div>
-<div class="card" id="1">
-    <li class="list-group-item">
-        <a href="#">
-            <div class="card_02">
-                <div class="card_img"></div>
-            </div>
-            <div class="card_03">
-                <p class="card_font">powerful_K</p>
-        </a>
-
-        <div class="container">
-            <div class="modal-box">
-                <div class="modal-icon">
-                    <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
-                </div>
-            </div>
-
-            <div class="popup-wrap" id="popup">
-                <div class="popup">
-                    <div class="popup-body">
-                        <div class="body-content">
-                            <div class="body-contentbox">
-                                <div>신고</div>
-                                <div>팔로우 취소</div>
-                                <div>게시물로 이동</div>
-                                <div>공유 대상...</div>
-                                <div>링크 복사</div>
-                                <div>퍼가기</div>
-                                <div id="close">취소</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-</div>
-</li>
-<img src="../static/img/bike.jpg" class="card-img-top" alt="bike">
-<div class="card-body">
-
-
-    <div class="card-main">
-        <a href="">
-        <span class="card-title">
-          <i class="fa-regular fa-heart fa-lg"></i>
-          <i class="fa-regular fa-comment-dots fa-lg"></i>
-          <i class="fa-regular fa-paper-plane fa-lg"></i>
-        </span>
-        </a>
-        <span class="card-title2">
-        <a href="#"><i class="fa-regular fa-bookmark fa-lg"></i></a>
-      </span>
-
-    </div>
-    <p class="card-text font">chulsu_powerful 님 외 15명이 좋아합니다</p>
-    <div class="show">
-        <div class="show-2">
-            바이크를 타고 가는 여행은 너무너무너무 쉬원하고 기분이 좋다.
-            맨날 맨날 매난~~~~~~~~~~~~~~~~~~~~ 여행 가고 싶다
-        </div>
-    </div>
-    <a href="#">
-        <div class="more"> 하루 전..</div>
-    </a>
-</div>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item">
-        <input style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-               placeholder="댓글달기...">
-
-        <button class="card-btn" onclick="save()">
-            게시
-        </button>
-
-    </li>
-</ul>
-</div> -->
-
-<!------------ 게시글 끝!!!!!!!!!!!!!!!! 드디어 끝!!!!! ----------->
 <br>
 <br>
 <br>
