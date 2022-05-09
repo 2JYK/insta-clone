@@ -45,7 +45,8 @@
         <!----------- 로고 ------->
         <div class="logo">
             <a href="">
-                <img alt="Instagram" src="../static/img/insta1.png">
+                <img alt="Instagram" src="../static/img/insta1.png"
+                     srcset="/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x">
             </a>
         </div>
 
@@ -171,7 +172,7 @@
                                               src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
                                     </div>
                                     <div class="modal_pf_name">kksu_97</div>
-                                    <p class="modal_desc_write" >라이언 너무 귀엽다. 라이언 만세!!!!! #라이언</p>
+                                    <p class="modal_desc_write" id="cm">라이언 너무 귀엽다. 라이언 만세!!!!! #라이언</p>
                                 </div>
                                 <!--  modal 게시물에 달린 댓글 시작-->
                                 <div id="comments">
@@ -180,14 +181,14 @@
                                                   src="https://ca.slack-edge.com/T039CS8AH0D-U03A0MUBSQH-0e4deb8911e1-512">
                                         </div>
                                         <div class="modal_pf_name">juhyun.1011</div>
-                                        <div class="modal_desc_write">우와. 라이언 잘 보고 갑니다!</div>
+                                        <div class="modal_desc_write" id="cm">우와. 라이언 잘 보고 갑니다!</div>
                                     </div>
                                     <div class="show_comment">
                                         <div><img style="width: 40px; border-radius: 50%"
                                                   src="https://ca.slack-edge.com/T039CS8AH0D-U039VKKRRF1-67b76fd7ee7b-512">
                                         </div>
                                         <div class="modal_pf_name">abcedtgollum</div>
-                                        <div class="modal_desc_write">제가 더 귀엽네요 ^^</div>
+                                        <div class="modal_desc_write" id="cm">제가 더 귀엽네요 ^^</div>
                                     </div>
                                 </div>
                                 <div>
@@ -211,7 +212,7 @@
                                         <i style="width: 40px; height: 40px" class="fa-regular fa-face-grin"></i>
                                     </div>
                                     <div class="write">
-                                        <textarea id="cm" type="text" style="border: transparent;outline: none; width: 460px;" placeholder="댓글 달기..."></textarea>
+                                        <input id="cm" type="text" style="border: transparent;outline: none; width: 460px;" placeholder="댓글 달기...">
                                     </div>
                                     <button class="register" onclick="save_comment()">
                                         게시

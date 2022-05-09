@@ -117,7 +117,7 @@ def api_login():
 		# exp에는 만료시간을 넣어줍니다. 만료시간이 지나면, 시크릿키로 토큰을 풀 때 만료되었다고 에러가 납니다.
 		payload = {
 			'id': insta_id_receive,
-			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60*60*24)		# 라이브러리 이용해서 활성화 완료 일단은 안됨xxxx
+			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=180)		# 라이브러리 이용해서 활성화 완료 일단은 안됨xxxx
 		}
 		token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
@@ -217,16 +217,17 @@ def post_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 
 
 @app.route("/mypage/comment", methods=["POST"])
-def comment_info():
-	token_receive = request.cookies.get('mytoken')
-	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-
-	cm_writer_receive = db.user_info.find_one({"insta_id": payload["id"]})
+def comment_info(): # 포스팅 정보 입력
+	cm_writer_receive = request.form['cm_writer']
 	cm_receive = request.form['cm_give']
+	# cm_date_receive = request.form['cm_date_give']
+	# cm_heart_receive = request.form['cm_heart_give'] # 리스트로 만들고 싶음/ 하나의 게시글에 여러 개의 하트가 달리니까
 
 	doc = { # db에 입력되는 user의 정보
 		'cm_writer': cm_writer_receive,
 		'cm': cm_receive,
+		# 'cm_date': cm_date_receive,
+		# 'cm_heart': cm_heart_receive,
 	}
 
 	db.comment_info.insert_one(doc)
@@ -236,9 +237,11 @@ def comment_info():
 
 @app.route("/mypage/comment", methods=["GET"])
 def comment_output():  # post의 id를 가져와 어떤 게시글인지 확인하고, 그곳에 대한 댓글을 사용자에게 제시해줌s
-
+	# post_info_list = list(db.post_info.find({}, {'location', 'photo', 'heart_cnt', 'post_desc', 'post_date'}))
 	comment_info_list = list(db.comment_info.find({}, {'_id': False}))
 	return jsonify({'comment_info': comment_info_list})
+# 'post_info': post_info_list,
+
 
 # following & follower ###########################################
 
@@ -273,4 +276,3 @@ def follower_info(): # 팔로잉 정보 입력
 
 if __name__ == '__main__':
 	app.run('0.0.0.0', port=5000, debug=True)
-
