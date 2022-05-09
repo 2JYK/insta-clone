@@ -584,6 +584,10 @@ footer {
     display: none;
 }
 
+.addition_modal {
+    display: none;
+}
+
 /*    드롭박스-박스 위에 달린 세모    */
 .dropdown-tri {
     background: #fff;
@@ -599,14 +603,14 @@ footer {
 /*      드롭박스유저-세모 위치(히스토리)       */
 .wichihis {
     bottom: 0;
-    top: 30px;
-    right: 73px;
+    top: 55px;
+    right: 64px;
 }
 
 /*      드롭박스유저-세모 위치(유저)       */
 .wichi {
     bottom: 0;
-    /*top: 30px;*/
+    top: 55px;
     right: 30px;
 }
 
@@ -617,6 +621,8 @@ footer {
     border-radius: 6px;
     box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
     position: absolute;
+    top: 60px;
+    right: 10px;
     width: 400px;
     z-index: 4;
     padding: 18px;
@@ -629,6 +635,8 @@ footer {
     border-radius: 6px;
     box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
     position: absolute;
+    top: 60px;
+    right: 10px;
     width: 250px;
     z-index: 3;
     padding: 18px 0px;
@@ -644,11 +652,15 @@ footer {
 /*      드롭박스유저-아이콘 정렬   */
 .move {
     display: flex;
-    align-items: center;
 }
 
 /*     드롭박스유저- 로그아웃 : 선, 정렬    */
 .logout {
     border-top: 1px solid lightgrey;
     padding-top: 10px;
+}
+
+.text {
+    margin-left: 10px;
+    text-underline: none;
 }
