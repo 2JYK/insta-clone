@@ -55,7 +55,7 @@ function show_insta_id() {
             $('#upper_right').append(temp_html);
         }
     });
-};
+}
 
 function save_comment() {
     const cm_writer = $('.user_id').val();
@@ -73,7 +73,7 @@ function save_comment() {
             window.location.reload();
         }
     });
-};
+}
 
 // 코멘트 부분 GET 요청 작성해야함!겟 받아와서 사용자한테 또 보여줘야죠
 function show_comment() {
@@ -102,4 +102,17 @@ function show_comment() {
             }
         }
     });
-};
+}
+
+// 드롭박스-유저
+
+function dropuser() {
+    // id 값 dropbox의 display 값이 block 이면
+    if ($('#dropbox').css('display') == 'block') {
+        // dropbox를 가리고
+        $('#dropbox').hide();
+    } else {
+        // 아니면 dropbox를 펴라
+        $('#dropbox').show();
+    }
+}

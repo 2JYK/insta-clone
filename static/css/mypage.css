@@ -257,3 +257,59 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+/*    드롭박스유저-박스 위에 달린 세모    */
+.addition_modal_content {
+    display: none;
+
+
+}
+
+.dropdown-tri {
+    background: #fff;
+    background: rgba(var(--d87, 255, 255, 255), 1);
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7, 0, 0, 0), .0975);
+    height: 14px;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 14px;
+}
+
+/*      드롭박스유저-세모 위치       */
+.wichi {
+    bottom: 0;
+    top: 30px;
+    right: 30px;
+}
+
+/*  드롭박스유저-박스  */
+.dropdown-box {
+    background: #fff;
+    background: rgba(var(--d87, 255, 255, 255), 1);
+    border-radius: 6px;
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
+    position: absolute;
+    width: 250px;
+    z-index: 3;
+    padding-bottom: 18px;
+}
+
+/*      드롭박스유저-박스안의 내용물        */
+.garo {
+    align-items: center;
+    padding-left: 10px;
+    margin: 0;
+}
+
+/*      드롭박스유저-아이콘 정렬   */
+.move {
+    display: flex;
+    align-items: center;
+}
+
+/*     드롭박스유저- 로그아웃 : 선, 정렬    */
+.logout {
+    border-top: 1px solid lightgrey;
+    padding-top: 10px;
+}
