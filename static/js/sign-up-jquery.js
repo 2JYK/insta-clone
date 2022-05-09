@@ -9,8 +9,13 @@ function save_user_info() {
         url: '/signup',
         data: {contact_give: contact, name_give: name, insta_id_give: insta_id, password_give: password},
         success: function (response) {
-            alert(response['msg'])
-            window.location.href = '/login';
+            if (response["result"] == "success") { // def signup의 마지막 줄 jsonify에 'result': 'success'를 꼭 넣어줘야 돌아감
+                alert(response['msg'])
+                window.location.href = '/login';
+            } else {
+                alert(response['msg'])
+                window.location.reload();
+            }
         }
     });
 }

@@ -39,6 +39,7 @@ def signup():
 
 @app.route('/login')
 def login():
+	print("login start")
 	msg = request.args.get("msg")
 	return render_template('log-in.html', msg=msg)
 
@@ -56,7 +57,7 @@ def sign_up(): 									# 회원 가입
 	while True:
 		contact_receive = request.form['contact_give']						#콘텍트(입력된 값) 값은 하난데, 이메일과 폰번호 중 하나로 들어가기에 밑에 if문을 사용함
 		if '@' in contact_receive:											#콘텍트 값에 '@' 포함되어 있을 경우
-			if contact_receive.split('@')[1].split('.')[0] in domain_list:	#콘텍트의 도메인 값이 domain_list 에 있을 경우
+			if contact_receive.split('@')[1] in domain_list:	#콘텍트의 도메인 값이 domain_list 에 있을 경우
 				email_receive = request.form['contact_give'] 				#DB의 email_receive 값에 넣어준다.
 				break														#성공시 break.
 			else:															#도메인 값이 domain_list에 없는 경우
@@ -92,7 +93,7 @@ def sign_up(): 									# 회원 가입
 	}
 
 	db.user_info.insert_one(doc)						# user_info 라는 db에 / 딕셔너리 형식으로 / 회원정보 저장!
-	return jsonify({'msg': '회원가입 완료!'})
+	return jsonify({'result': 'success', 'msg': '회원가입 완료!'})
 
 
 # 로그인 ###########################################
