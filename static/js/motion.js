@@ -124,16 +124,21 @@ $(function () {
 
 //          ㅡㅡㅡㅡㅡㅡㅡPOSTㅡㅡㅡㅡㅡㅡㅡㅡ
 function save() {
+    let desc = $("#").val
+    let photo
     $.ajax({
         type: 'POST',
-        url: '',
-        data: {},
-        success: function (response) {
-            alert(response['msg'])
-            window.location.reload()
-        }
-    });
-}
+        url: '/posting',
+        data: {
+            desc_give: desc,
+            //     photo :
+            },
+            success: function (response) {
+                alert(response['msg'])
+                window.location.reload()
+            }
+        });
+    }
 
 
 //        ㅡㅡㅡㅡㅡ feed modal  ㅡㅡㅡㅡㅡ

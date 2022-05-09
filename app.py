@@ -186,20 +186,23 @@ def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 # post ###########################################
 # 게시글 순서 : +버튼 클릭 -> 사진 드래그해서 등록 -> 문구 입력, 위치 추가 -> '공유하기' 버튼 눌러서 등록
 
-@app.route("/mars", methods=["POST"])
+@app.route("/posting", methods=["POST"])
 def posting(): # 포스팅 정보 입력
-	location_receive = request.form['location_give']
+	token_receive = request.cookies.get('mytoken')
+	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+	# cm_writer_receive = db.user_info.find_one({"insta_id": payload["id"]})
 	photo_receive = request.form['photo_give']
 	post_desc_receive = request.form['post_desc_give']
-	post_date_receive = request.form['post_date_give']
-	heart_cnt_receive = request.form['heart_cnt_give'] # 좋아요를 누른 사람들의 리스트?
+	# post_date_receive = request.form['post_date_give']
+
 
 	doc = { # db에 입력되는 user의 정보
-		'location': location_receive,
+
 		'photo': photo_receive,
 		'post_desc': post_desc_receive,
-		'post_date': post_date_receive,
-		'heart_cnt': heart_cnt_receive
+		# 'post_date': post_date_receive,
+
 	}
 
 	db.post_info.insert_one(doc)
