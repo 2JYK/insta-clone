@@ -455,7 +455,7 @@ footer {
 }
 
 .modal_img {
-    outline: 2px dashed black;
+    outline: 2px dashed salmon;
     outline-offset: -10px;
     text-align: center;
     transition: all .15s ease-in-out;

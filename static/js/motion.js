@@ -162,7 +162,7 @@ function uploadFiles(e) {
     var files = e.dataTransfer.files;
 
     if (files.length > 1) {
-        alert('이미지를 하나만 올리시오.');
+        alert('이미지를 두개 이상은 안올라갑니다~');
         return;
     }
 
