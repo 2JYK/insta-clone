@@ -113,10 +113,13 @@ function save() {
 
 //        ㅡㅡㅡㅡㅡ feed modal  ㅡㅡㅡㅡㅡ
 const modal = document.getElementById("feed_modal");
+const modal_two = document.getElementById("feed_modal_in")
 const buttonAddFeed = document.getElementById("feed");
+
 buttonAddFeed.addEventListener("click", e => {
     modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌
     modal.style.display = "flex";
+
     document.body.style.overflowY = "hidden"; // 스크롤 없애기
 });
 
@@ -126,8 +129,15 @@ buttonCloseModal.addEventListener("click", e => {
     modal.style.display = "none";
     document.body.style.overflowY = "visible";
 
-    console.log(window.pageYOffset + " 좌표"); // 로그 찍기
+    console.log(window.pageYOffset + " 좌표"); // 좌표 찍어보기
 });
+
+const buttonCloseModal2 = document.getElementById("close_modal2");
+buttonCloseModal2.addEventListener("click", e => {
+    modal_two.style.display = "none";
+    document.body.style.overflowY = "visible";
+});
+
 
 // <!-- jquery 부분 -->
 
@@ -236,3 +246,24 @@ $('#button_write_feed').on('click', ()=>{
         console.log(files[0]);
     }
 });
+
+function writeFeed(fd) {
+    $.ajax({
+        url: "/content/upload",
+        data: fd,
+        method: "POST",
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            console.log("성공");
+        },
+        error: function (request, status, error) {
+            console.log("에러");
+        },
+        complete: function() {
+            console.log("무조건실행");
+            closeModal();
+            location.reload();
+        }
+    })
+};
