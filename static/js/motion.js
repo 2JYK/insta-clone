@@ -5,8 +5,7 @@ $(document).ready(function () {
         var content = $(this).children('.show-2');
         var content_txt = content.text();
         var content_txt_short = content_txt.substring(0, 40) + "...";
-        var btn_more = $(
-            '<a href="javascript:void(0)" class="more" style="color: #9E9E9E;">더 보기</a>');
+        var btn_more = $('<a href="javascript:void(0)" class="more" style="color: #9E9E9E;">더 보기</a>');
 
 
         $(this).append(btn_more);
@@ -34,7 +33,14 @@ $(document).ready(function () {
             }
         }
     });
-});
+    // 드롭박스-유저-로그아웃
+    $("#logout").click(function() {
+        $.removeCookie('mytoken');
+        console.log('mytoken')
+        alert('로그아웃')
+        window.location.href='/login'
+    })
+})
 
 //          ㅡㅡㅡㅡㅡㅡㅡ모달ㅡㅡㅡㅡㅡㅡㅡㅡ
 $(function () {
@@ -245,7 +251,7 @@ $('#button_write_feed').on('click', ()=>{
         writeFeed(fd);
         console.log(files[0]);
     }
-});
+})
 
 function writeFeed(fd) {
     $.ajax({
@@ -266,4 +272,27 @@ function writeFeed(fd) {
             location.reload();
         }
     })
-};
+}
+
+// 드롭박스-히스토리
+function history() {
+    // id 값 drophis의 display 값이 block 이면
+    if ($('#history').css('display') == 'block') {
+        // drophis를 가리고
+        $('#history').hide();
+    } else {
+        // 아니면 drophis를 펴라
+        $('#history').show();
+    }
+}
+// 드롭박스-유저
+function profile() {
+    // id 값 dropbox의 display 값이 block 이면
+    if ($('#profile').css('display') == 'block') {
+        // dropbox를 가리고
+        $('#profile').hide();
+    } else {
+        // 아니면 dropbox를 펴라
+        $('#profile').show();
+    }
+}

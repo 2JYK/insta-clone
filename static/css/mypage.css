@@ -258,13 +258,14 @@ header {
     flex-wrap: wrap;
 }
 
-/*    드롭박스유저-박스 위에 달린 세모    */
+
+
+/*      드롭박스-전체박스 처음에 없어진 상태로 있기     */
 .addition_modal_content {
     display: none;
-
-
 }
 
+/*    드롭박스-박스 위에 달린 세모    */
 .dropdown-tri {
     background: #fff;
     background: rgba(var(--d87, 255, 255, 255), 1);
@@ -276,13 +277,32 @@ header {
     width: 14px;
 }
 
-/*      드롭박스유저-세모 위치       */
-.wichi {
+/*      드롭박스유저-세모 위치(히스토리)       */
+.wichihis {
     bottom: 0;
     top: 30px;
+    right: 73px;
+}
+
+/*      드롭박스유저-세모 위치(유저)       */
+.wichi {
+    bottom: 0;
+    /*top: 30px;*/
     right: 30px;
 }
 
+/*  드롭박스 히스토리-박스  */
+.dropbox-his{
+    background: #fff;
+    background: rgba(var(--d87, 255, 255, 255), 1);
+    border-radius: 6px;
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
+    position: absolute;
+    width: 400px;
+    z-index: 4;
+    padding: 18px;
+
+}
 /*  드롭박스유저-박스  */
 .dropdown-box {
     background: #fff;
@@ -292,7 +312,7 @@ header {
     position: absolute;
     width: 250px;
     z-index: 3;
-    padding-bottom: 18px;
+    padding: 18px 0px;
 }
 
 /*      드롭박스유저-박스안의 내용물        */

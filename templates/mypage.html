@@ -25,6 +25,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <!--    쿠키 사용시 무조건 임포트    -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
     <!-- 구글폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,17 +61,28 @@
 
         <nav>
             <ul class="icons">
-                <li><a href="/"><i class="fa-solid fa-house fa-xl"></i></a></li>
+                <li><a href="/mypage"><i class="fa-solid fa-house fa-xl"></i></a></li>
                 <li><a href="#"><i class="fa-regular fa-paper-plane fa-xl"></i></a></li>
                 <li><a href="#"><i class="fa-regular fa-square-plus fa-xl"></i></a></li>
                 <li><a href="#"><i class="fa-regular fa-compass fa-xl"></i></a></li>
-                <li><a href="#" onclick="drophistory()"><i class="fa-regular fa-heart fa-xl"></i></a></li>
-                <li><a href="#" onclick="dropuser()"><i class="fa-solid fa-circle-user fa-xl"></i>
-                    <div class="addition_modal_content" id="dropbox" role="none">
+                <li><a href="#" onclick="history()"><i class="fa-regular fa-heart fa-xl"></i>
+                    <div clsss="addition_modal_content" id="history" role="none">
+                        <div class="dropdown-tri wichihis"></div>
+                        <div class="dropbox-his">
+                            <div class="garo">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </a></li>
+                <li><a href="#" onclick="profile()"><i class="fa-solid fa-circle-user fa-xl"></i>
+                    <div class="addition_modal_content" id="profile" role="none">
                             <div class="dropdown-tri wichi"></div>
                             <div class="dropdown-box">
                                 <div class="garo">
-                                        <a href="/mypage" class="move">
+                                        <a href="/mypage/user" class="move">
                                             <svg aria-label="Profile" class="_8-yf5 " color="#262626" fill="#262626" height="16" role="img"
                                                  viewBox="0 0 24 24" width="16">
                                                 <circle cx="12.004" cy="12.004" fill="none" r="10.5" stroke="currentColor" stroke-linecap="round"
@@ -118,12 +132,11 @@
                                 </div>
 
                                 <div class="garo logout">
-                                    <a href="#" class="move" >Log Out</a>
+                                    <a href="#" class="move" id="logout" onclick="logout()">Log Out</a>
                                 </div>
                             </div>
-                    </div></a>
-                </li>
-
+                    </div>
+                </a></li>
             </ul>
         </nav>
     </header>
