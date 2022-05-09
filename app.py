@@ -217,7 +217,7 @@ def post_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 # comment ###########################################
 
 
-@app.route("/mypage/comment", methods=["POST"])
+@app.route("/comment", methods=["POST"])
 def comment_info():
 	token_receive = request.cookies.get('mytoken')
 	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
@@ -235,7 +235,7 @@ def comment_info():
 	return jsonify({'msg': '댓글작성 완료!'})
 
 
-@app.route("/mypage/comment", methods=["GET"])
+@app.route("/comment", methods=["GET"])
 def comment_output():
 	comment_info_list = list(db.comment_info.find({}, {'_id': False}))
 	print(comment_info_list)
@@ -274,5 +274,6 @@ def follower_info(): # 팔로잉 정보 입력
 	return jsonify({'msg': '팔로워!'})
 
 
+
 if __name__ == '__main__':
-	app.run('0.0.0.0', port=5000, debug=True)
+	app.run('0.0.0.0', port=5002, debug=True)

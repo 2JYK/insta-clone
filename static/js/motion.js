@@ -1,5 +1,14 @@
 //  ㅡㅡㅡㅡㅡ 더보기란 ㅡㅡㅡㅡㅡ
 $(document).ready(function () {
+    // 사진 상세보기기능- 댓글 모두보기 클릭시
+    $('#modal_open').click(function() {
+        $('#modal').show();
+    })
+    $("#modal_close").click(function () {
+        $('#modal').hide();
+    })
+// 사진 상세보기기능- 댓글 모두보기 클릭시
+    show_comment();
 
     $('.show').each(function () {
         var content = $(this).children('.show-2');
@@ -62,6 +71,16 @@ $(function () {
     }
 });
 
+// // const modal = document.getElementById("feed_modal_in");
+//
+// // const mango = document.getElementById("modal_open");
+//
+// mango.addEventListener("click", e => {
+//     modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌
+//     modal.style.display = "flex";
+//
+//     document.body.style.overflowY = "hidden"; // 스크롤 없애기
+// });
 
 $(function () {
     $("#confirm").click(function () {
@@ -295,4 +314,44 @@ function profile() {
         // 아니면 dropbox를 펴라
         $('#profile').show();
     }
+}
+
+function save_comment() {
+    const cm = $('#cm').val();
+
+    $.ajax({
+        type: 'POST',
+        url: '/comment',
+        data: {cm_give: cm},
+        success: function (response) {
+            window.location.reload();
+        }
+    });
+}
+
+// 코멘트 부분 GET 요청 작성해야함!겟 받아와서 사용자한테 또 보여줘야죠
+function show_comment() {
+    $.ajax({
+        type: "GET",
+        url: "/comment",
+        data: {},
+        success: function (response) {
+            const comments = response['comment_info']
+            console.log(comments)
+            for (let i=0; i < comments.length;i++) {
+                const writer = comments[i]['cm_writer']
+                const comment = comments[i]['cm']
+
+                const temp_html = `<div class="show_comment">
+                                        <div><img style="width: 40px; border-radius: 50%"
+                                                  src="https://ca.slack-edge.com/T039CS8AH0D-U03A0MUBSQH-0e4deb8911e1-512">
+                                        </div>
+                                        <div class="modal_pf_name">${writer}</div>
+                                        <div class="modal_desc_write">${comment}</div>
+<!--                                        댓글단 시간 측정하는거랑 좋아요 개수에 대한 칸을 만들고 작성해야함!-->
+                                    </div>`
+                $('#comments').append(temp_html)
+            }
+        }
+    });
 }

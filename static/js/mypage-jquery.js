@@ -70,7 +70,7 @@ function save_comment() {
 
     $.ajax({
         type: 'POST',
-        url: '/mypage/comment',
+        url: '/comment',
         data: {cm_give: cm},
         success: function (response) {
             window.location.reload();
@@ -82,7 +82,7 @@ function save_comment() {
 function show_comment() {
     $.ajax({
         type: "GET",
-        url: "/mypage/comment",
+        url: "/comment",
         data: {},
         success: function (response) {
             const comments = response['comment_info']
