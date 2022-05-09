@@ -140,164 +140,6 @@ function save() {
         });
     }
 
-
-//        ㅡㅡㅡㅡㅡ feed modal  ㅡㅡㅡㅡㅡ
-const modal = document.getElementById("feed_modal");
-const modal_two = document.getElementById("feed_modal_in")
-const buttonAddFeed = document.getElementById("feed");
-
-buttonAddFeed.addEventListener("click", e => {
-    modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌
-    modal.style.display = "flex";
-
-    document.body.style.overflowY = "hidden"; // 스크롤 없애기
-});
-
-// 모달 닫기 코드
-const buttonCloseModal = document.getElementById("close_modal");
-buttonCloseModal.addEventListener("click", e => {
-    modal.style.display = "none";
-    document.body.style.overflowY = "visible";
-
-    console.log(window.pageYOffset + " 좌표"); // 좌표 찍어보기
-});
-
-const buttonCloseModal2 = document.getElementById("close_modal2");
-buttonCloseModal2.addEventListener("click", e => {
-    modal_two.style.display = "none";
-    document.body.style.overflowY = "visible";
-});
-
-
-// <!-- jquery 부분 -->
-
-$('.modal_img')
-    .on("dragover", dragOver)
-    .on("dragleave", dragOver)
-    .on("drop", uploadFiles);
-
-function dragOver(e) {
-  console.log(e)
-    e.stopPropagation();
-    e.preventDefault();
-
-    if (e.type == "dragover") {
-        $(e.target).css({
-            "background-color": "black",
-            "outline-offset": "-20px"
-        });
-    } else {
-        $(e.target).css({
-            "background-color": "white",
-            "outline-offset": "-10px"
-        });
-    }
-}
-
-function uploadFiles(e) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    e.dataTransfer = e.originalEvent.dataTransfer;
-
-    var files = e.dataTransfer.files;
-
-    if (files.length > 1) {
-        alert('이미지를 하나만 올리시오.');
-        return;
-    }
-
-    if (files[0].type.match(/image.*/)) {
-        $('#feed_modal_in').css({
-            display : 'flex'
-        });
-        $('.modal_img_feed').css({
-            "background-image": "url(" + window.URL.createObjectURL(files[0]) + ")",
-            "outline": "none",
-            "background-size": "contain",
-            "background-repeat" : "no-repeat",
-            "background-position" : "center"
-        });
-        $('#feed_modal').css({
-            display: 'none'
-        })
-    } else {
-        alert('이미지가 xxxx.');
-        return;
-    }
-}
-
-if (e.type == "dragover") {
-  $(e.target).css({
-    "background-color": "black",
-    "outline-offset": "-20px"
-  });
-} else {
-  $(e.target).css({
-    "background-color": "white",
-    "outline-offset": "-10px"
-  });
-}
-
-$('#button_write_feed').on('click', ()=>{
-    const image = $('#input_image').css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
-    const content = $('#input_content').val();
-    const profile_image = $('#input_profile_image').attr('src');
-    const user_id = $('#input_user_id').text();
-
-    const file = files[0];
-
-    let fd = new FormData();
-
-    fd.append('file', file);
-    fd.append('image', image);
-    fd.append('content', content);
-    fd.append('profile_image', profile_image);
-    fd.append('user_id', user_id);
-
-    if(image.length <= 0)
-    {
-        alert("이미지가 비어있습니다.");
-    }
-    else if(content.length <= 0)
-    {
-        alert("설명을 입력하세요");
-    }
-    else if(profile_image.length <= 0)
-    {
-        alert("프로필 이미지가 비어있습니다.");
-    }
-    else if(user_id.length <= 0)
-    {
-        alert("사용자 id가 없습니다.");
-    }
-    else{
-        writeFeed(fd);
-        console.log(files[0]);
-    }
-})
-
-function writeFeed(fd) {
-    $.ajax({
-        url: "/content/upload",
-        data: fd,
-        method: "POST",
-        processData: false,
-        contentType: false,
-        success: function (data) {
-            console.log("성공");
-        },
-        error: function (request, status, error) {
-            console.log("에러");
-        },
-        complete: function() {
-            console.log("무조건실행");
-            closeModal();
-            location.reload();
-        }
-    })
-}
-
 // 드롭박스-히스토리
 function history() {
     // id 값 drophis의 display 값이 block 이면
@@ -359,4 +201,52 @@ function show_comment() {
             }
         }
     });
+}
+
+
+
+
+//        ㅡㅡㅡㅡㅡ feed modal  ㅡㅡㅡㅡㅡ
+const modal = document.getElementById("feed_modal_in");
+
+const buttonAddFeed = document.getElementById("feed");
+
+buttonAddFeed.addEventListener("click", e => {
+    modal.style.top = window.pageYOffset + 'px'; // top을 이용해 시작 y위치를 바꿔줌
+    modal.style.display = "flex";
+
+    document.body.style.overflowY = "hidden"; // 스크롤 없애기
+});
+
+// 모달 닫기 코드
+const buttonCloseModal = document.getElementById("close_modal");
+buttonCloseModal.addEventListener("click", e => {
+    modal.style.display = "none";
+    document.body.style.overflowY = "visible";
+
+    console.log(window.pageYOffset + " 좌표"); // 좌표 찍어보기
+});
+
+
+//   ㅡㅡㅡㅡㅡ POST ㅡㅡㅡㅡㅡ
+function posting() {
+  let feed = $('#feed').val()
+  let file = $('#file')[0].files[0]
+  let form_data = new FormData()
+
+  form_data.append("feed_give", feed)
+  form_data.append("file_give", file)
+
+  $.ajax({
+      type: "POST",
+      url: "/fileupload",
+      data: form_data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+          alert(response["result"])
+          window.location.reload()
+      }
+  });
 }
