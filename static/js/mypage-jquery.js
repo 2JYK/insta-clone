@@ -73,7 +73,6 @@ function save_comment() {
         url: '/mypage/comment',
         data: {cm_give: cm},
         success: function (response) {
-
             window.location.reload();
         }
     });
@@ -89,7 +88,7 @@ function show_comment() {
             const comments = response['comment_info']
             console.log(comments)
             for (let i=0; i < comments.length;i++) {
-                const writer = comments[i]['cm_writer']['insta_id']
+                const writer = comments[i]['cm_writer']
                 const comment = comments[i]['cm']
 
                 const temp_html = `<div class="show_comment">
@@ -97,7 +96,7 @@ function show_comment() {
                                                   src="https://ca.slack-edge.com/T039CS8AH0D-U03A0MUBSQH-0e4deb8911e1-512">
                                         </div>
                                         <div class="modal_pf_name">${writer}</div>
-                                        <div class="modal_desc_wrtie" id="cm">${comment}</div>
+                                        <div class="modal_desc_write">${comment}</div>
 <!--                                        댓글단 시간 측정하는거랑 좋아요 개수에 대한 칸을 만들고 작성해야함!-->
                                     </div>`
                 $('#comments').append(temp_html)

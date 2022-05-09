@@ -192,6 +192,16 @@ header {
 }
 
 /* modal 게시물에 달린 댓글 시작 */
+.comments {
+    height: 450px;
+    overflow: scroll;
+    /*스크롤바 숨기기*/
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.comments::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
 .show_comment {
     display: flex;
     justify-content: flex-start;
@@ -207,7 +217,7 @@ header {
     justify-content: flex-start;
     flex-direction: column;
 
-    margin-top: 330px;
+    /*margin-top: 330px;*/
     border-top: lightgray 1px solid;
 }
 .modal_icon {
@@ -237,6 +247,8 @@ header {
     color: dodgerblue;
     border: none;
     background-color: transparent;
+    align-items: center;
+    justify-content: center;
 }
 
 /* 하단 게시글 시작 */
