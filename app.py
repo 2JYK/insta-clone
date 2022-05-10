@@ -1,3 +1,4 @@
+from turtle import fd
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from pymongo import MongoClient
 
@@ -189,29 +190,39 @@ def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 
 # post ###########################################
 # 게시글 순서 : +버튼 클릭 -> 사진 드래그해서 등록 -> 문구 입력, 위치 추가 -> '공유하기' 버튼 눌러서 등록
+@app.route('/posting', methods=['POST'])
+def posting():
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    
+    author_receive = db.user_info.find_one({"insta_id": payload["id"]})
+    feed_posting_receive = request.form['feed_posting_give']
+    photo = request.files['photo_give']
+    
+    # 해당 파일에서 확장자명만 추출
+    extension = photo.filename.split('.')[-1]
+    
+    # 파일 이름이 중복되면 안되므로, 지금 시간을 해당 파일 이름으로 만들어서 중복이 되지 않게 함!
+    today = datetime.datetime.now()
+    mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
+    filename = f'{feed_posting_receive}-{mytime}'
+    # 파일 저장 경로 설정 (파일은 db가 아니라, 서버 컴퓨터 자체에 저장됨)
+    save_to = f'static/img/{filename}.{extension}'
+    # 파일 저장!
+    photo.save(save_to)
+    
+    # 아래와 같이 입력하면 db에 추가 가능!
+    doc = {
+        'author': author_receive,
+        'post':feed_posting_receive,
+        'img':f'{filename}.{extension}'
+        }
+    db.post_info.insert_one(doc)
 
-@app.route("/posting", methods=["POST"])
-def posting(): # 포스팅 정보 입력
-	token_receive = request.cookies.get('mytoken')
-	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-
-	author_receive = db.user_info.find_one({"insta_id": payload["id"]})
-	photo_receive = request.form['photo_give']
-	feed_receive = request.form['feed_give']
-	# post_date_receive = request.form['post_date_give']
-
-	doc = {
-		'author': author_receive,
-		'photo': photo_receive,
-		'feed': feed_receive
-		# 'post_date': post_date_receive,
-	}
-
-	db.post_info.insert_one(doc)
-
-	return jsonify({'msg': '포스팅 완료!'})
+    return jsonify({'result':'success', 'msg':'포스팅 완료'})
 
 
+# get는 아직 안만짐
 @app.route("/posting", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
 def post_output():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
 	user_info_list = list(db.userinfo.find({}, {'_id': False}))
@@ -248,6 +259,17 @@ def comment_output():
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 # following & follower ###########################################
 
 
@@ -281,4 +303,4 @@ def follower_info(): # 팔로잉 정보 입력
 
 
 if __name__ == '__main__':
-	app.run('0.0.0.0', port=5002, debug=True)
+	app.run('0.0.0.0', port=5000, debug=True)

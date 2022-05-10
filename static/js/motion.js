@@ -211,27 +211,30 @@ buttonCloseModal.addEventListener("click", e => {
 
 
 //   ㅡㅡㅡㅡㅡ POST ㅡㅡㅡㅡㅡ
-// function posting() {
-//   let feed = $('#feed').val()
-//   let photo = $('#file')[0].files[0]
-//   let form_data = new FormData()
-//
-//   form_data.append("feed_give", feed)
-//   form_data.append("file_give", photo)
-//
-//   $.ajax({
-//       type: "POST",
-//       url: "/posting",
-//       data: form_data,
-//       cache: false,
-//       contentType: false,
-//       processData: false,
-//       success: function (response) {
-//           alert(response["result"])
-//           window.location.reload()
-//       }
-//   });
-// }
+function posting() {
+  let feed_posting = $('#feed_posting').val()
+  let photo = $('#photo')[0].files[0]
+  console.log(photo)
+  let form_data = new FormData()
+
+  form_data.append("feed_posting_give", feed_posting)
+  form_data.append("photo_give", photo)
+
+    console.log(form_data)
+    
+  $.ajax({
+      type: "POST",
+      url: "/posting",
+      data: form_data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+          alert(response["msg"])
+          window.location.reload()
+      }
+  });
+}
 
 //          ㅡㅡㅡㅡㅡㅡㅡPOSTㅡㅡㅡㅡㅡㅡㅡㅡ
 function save() {
