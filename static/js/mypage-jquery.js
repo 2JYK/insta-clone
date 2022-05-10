@@ -51,6 +51,7 @@ function show_insta_id() {
             const user = response['user_info_list']
             const id = response['profile_id']
             let name = ``
+            // const post = response['post']
             for (let i=0; i < user.length; i++) {
                 if (id === user[i]['insta_id']) {
                     name = user[i]['name']
@@ -60,7 +61,7 @@ function show_insta_id() {
             let temp_html = `<div class="user_id">${id}</div>
                                   <div>
                                       <div class="state">
-                                          <div><a class="state_num" href="">게시물 81</a></div>
+                                          <div><a class="state_num" href="">게시물 ${post}</a></div>
                                           <div><a class="state_num" href="">팔로워 251</a></div>
                                           <div><a class="state_num" href="">팔로우 271</a></div>
                                       </div>

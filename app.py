@@ -82,6 +82,7 @@ def sign_up(): 									# 회원 가입
 	name_receive = request.form['name_give']
 	insta_id_receive = request.form['insta_id_give']
 	password_receive = request.form['password_give']
+	user_profile_receive = request.form['user_profile_give']
 
 	password_hash_receive = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
 
@@ -91,7 +92,8 @@ def sign_up(): 									# 회원 가입
 		'email': email_receive,
 		'name': name_receive,
 		'insta_id': insta_id_receive,
-		'password': password_hash_receive
+		'password': password_hash_receive,
+		'user_profile': user_profile_receive
 	}
 
 	db.user_info.insert_one(doc)						# user_info 라는 db에 / 딕셔너리 형식으로 / 회원정보 저장!
@@ -184,9 +186,10 @@ def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 
 	profile_id = db.user_info.find_one({"insta_id": payload["id"]})['insta_id']
 	user_info_list = list(db.user_info.find({}, {'_id': False}))
-	# post_list = list(db.post_info.find({}, {'_id': False}))
+	post_list = list(db.post_info.find({}, {'_id': False}))
+	print(post_list)
 	# follow, following 에서도 숫자 받아와야지 len
-	return jsonify({'result': 'success','profile_id': profile_id,'user_info_list': user_info_list})
+	return jsonify({'result': 'success','profile_id': profile_id,'user_info_list': user_info_list, 'post': post_list})
 
 
 # post ###########################################
@@ -196,7 +199,7 @@ def posting():
 	token_receive = request.cookies.get('mytoken')
 	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
-	author_receive = db.user_info.find_one({"insta_id": payload["id"]})
+	author_receive = db.user_info.find_one({"insta_id": payload["id"]})['insta_id']
 	feed_posting_receive = request.form['feed_posting_give']
 	photo = request.files['photo_give']
 
@@ -243,7 +246,11 @@ def comment_info():
 	cm_writer_receive = db.user_info.find_one({"insta_id": payload["id"]})
 	cm_receive = request.form['cm_give']
 
+	# post_serial = db.post_info.find_one.ObjectId("_id")
+	# print(post_serial)
+
 	doc = {
+		# 'post_serial': ObjectId(post_serial['_id']).str
 		'cm_writer': cm_writer_receive['insta_id'],
 		'cm': cm_receive
 	}
@@ -256,19 +263,7 @@ def comment_info():
 @app.route("/comment", methods=["GET"])
 def comment_output():
 	comment_info_list = list(db.comment_info.find({}, {'_id': False}))
-	print(comment_info_list)
 	return jsonify({'comment_info': comment_info_list})
-
-
-
-
-
-
-
-
-
-
-
 
 
 
