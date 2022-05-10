@@ -214,13 +214,10 @@ buttonCloseModal.addEventListener("click", e => {
 function posting() {
   let feed_posting = $('#feed_posting').val()
   let photo = $('#photo')[0].files[0]
-  console.log(photo)
   let form_data = new FormData()
 
   form_data.append("feed_posting_give", feed_posting)
   form_data.append("photo_give", photo)
-
-    console.log(form_data)
     
   $.ajax({
       type: "POST",

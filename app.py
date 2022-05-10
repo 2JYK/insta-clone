@@ -205,7 +205,8 @@ def posting():
     # 파일 이름이 중복되면 안되므로, 지금 시간을 해당 파일 이름으로 만들어서 중복이 되지 않게 함!
     today = datetime.datetime.now()
     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
-    filename = f'{feed_posting_receive}-{mytime}'
+    filename = f'{photo.filename}-{mytime}'
+    
     # 파일 저장 경로 설정 (파일은 db가 아니라, 서버 컴퓨터 자체에 저장됨)
     save_to = f'static/img/{filename}.{extension}'
     # 파일 저장!
@@ -223,11 +224,11 @@ def posting():
 
 
 # get는 아직 안만짐
-@app.route("/posting", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
-def post_output():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
-	user_info_list = list(db.userinfo.find({}, {'_id': False}))
-	post_info_list = list(db.postinfo.find({}, {'_id': False}))
-	return jsonify({'post_name': user_info_list, 'post_info': post_info_list})
+# @app.route("/posting", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
+# def post_output():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
+# 	user_info_list = list(db.userinfo.find({}, {'_id': False}))
+# 	post_info_list = list(db.postinfo.find({}, {'_id': False}))
+# 	return jsonify({'post_name': user_info_list, 'post_info': post_info_list})
 
 
 # comment ###########################################
