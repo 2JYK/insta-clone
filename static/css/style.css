@@ -604,7 +604,7 @@ footer {
 .wichihis {
     bottom: 0;
     top: 55px;
-    right: 64px;
+    right: 74px;
 }
 
 /*      드롭박스유저-세모 위치(유저)       */
@@ -623,7 +623,7 @@ footer {
     position: absolute;
     top: 60px;
     right: 10px;
-    width: 400px;
+    width: 300px;
     z-index: 4;
     padding: 18px;
 
@@ -637,7 +637,7 @@ footer {
     position: absolute;
     top: 60px;
     right: 10px;
-    width: 250px;
+    width: 200px;
     z-index: 3;
     padding: 18px 0px;
 }
@@ -652,6 +652,7 @@ footer {
 /*      드롭박스유저-아이콘 정렬   */
 .move {
     display: flex;
+    text-decoration: none;
 }
 
 /*     드롭박스유저- 로그아웃 : 선, 정렬    */
