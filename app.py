@@ -199,7 +199,8 @@ def posting():
 	token_receive = request.cookies.get('mytoken')
 	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
-	author_receive = db.user_info.find_one({"insta_id": payload["id"]})['insta_id']
+
+	author_receive = db.user_info.find_one({"insta_id": payload["id"]})["insta_id"]
 	feed_posting_receive = request.form['feed_posting_give']
 	photo = request.files['photo_give']
 
@@ -228,11 +229,15 @@ def posting():
 
 
 # get는 아직 안만짐
-# @app.route("/posting", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
-# def post_output():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
-# 	user_info_list = list(db.userinfo.find({}, {'_id': False}))
-# 	post_info_list = list(db.postinfo.find({}, {'_id': False}))
-# 	return jsonify({'post_name': user_info_list, 'post_info': post_info_list})
+@app.route("/posting", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
+def feed_post():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
+
+	# 필요할때 쓸거 ↓
+	# user_info_list = list(db.post_info.find({}, {'_id': False}))
+	post_info_list = list(db.post_info.find( {}, {'_id': False} ))
+	comment_info_list = list(db.comment_info.find( {},{'_id': False} ))
+
+	return jsonify({'post_info': post_info_list, 'comment_info': comment_info_list})
 
 
 # comment ###########################################
