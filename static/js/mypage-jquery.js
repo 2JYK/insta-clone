@@ -51,12 +51,12 @@ function show_insta_id() {
             const user = response['user_info_list']
             const id = response['profile_id']
             let name = ``
-            // const post = response['post']
             for (let i=0; i < user.length; i++) {
                 if (id === user[i]['insta_id']) {
                     name = user[i]['name']
                 }
             }
+            const post = response['post'].length
 
             let temp_html = `<div class="user_id">${id}</div>
                                   <div>
