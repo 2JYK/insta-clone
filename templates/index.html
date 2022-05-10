@@ -47,7 +47,7 @@
   <header>
     <!----------- 로고 ------->
     <div class="logo">
-      <a href="">
+      <a href="/">
         <img alt="Instagram" src="../static/img/insta1.png">
       </a>
     </div>
@@ -342,6 +342,7 @@
         <div id="bind" class="feed_start">
           <!----------------------   카드 윗부분(모달창(팝업)- 사진-이름) ----------------------------->
           <div class="container">
+
             <div class="modal-box">
               <div class="modal-icon">
                 <i class="fa-solid fa-ellipsis three-dot" id="modal-open"></i>
@@ -431,7 +432,13 @@
             <div class="card-modal">
               <!------ Modal ------>
               <div id="modal" class="modal">
+
+                <div><button class="modal_close" id="modal_close">
+                <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24" width="24"><polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line></svg>
+                </button></div>
+
                 <div class="modal_box">
+
                   <div class="modal_left">
                     <img alt="" src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg"
                       style="width: 750px; height: 760px;">
@@ -443,9 +450,9 @@
                           src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
                       </div>
                       <div class="modal_pf_name">kksu_97</div>
-                      <div class="modal_close" id="modal_close"><span>X</span></div>
                     </div>
                     <!--  modal 안에 있는 게시물 설명-->
+
                     <div class="modal_desc">
                       <div><img style="width: 40px; border-radius: 50%"
                           src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
@@ -457,10 +464,19 @@
                     <div class="comments" id="comments"></div>
                     <div>
                       <div class="icon_box">
-                        <div class="modal_icon">
-                          <i class="fa-regular fa-heart fa-lg"></i>
-                          <i class="fa-regular fa-comment-dots fa-lg"></i>
-                          <i class="fa-regular fa-paper-plane fa-lg"></i>
+                        <div class="card-main">
+                          <a href="#">
+                            <span class="card-title">
+                              <i class="fa-regular fa-heart fa-lg"></i>
+                              <i class="fa-regular fa-comment-dots fa-lg"></i>
+                              <i class="fa-regular fa-paper-plane fa-lg"></i>
+                            </span>
+                          </a>
+                          <a href="#">
+                            <span class="card-title2">
+                              <i class="fa-regular fa-bookmark fa-lg"></i>
+                            </span>
+                          </a>
                         </div>
                         <div class="modal_like">
                           <img style="width: 25px; border-radius: 50%"
@@ -474,7 +490,7 @@
                     </div>
                     <div class="write_comment">
                       <div class="emogi">
-                        <i class="fa-regular fa-face-grin"></i>
+                        <svg aria-label="Emoji" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg>
                       </div>
                       <div class="write">
                         <input id="cm" type="text"
@@ -488,6 +504,8 @@
                   </div>
                 </div>
               </div>
+
+
               <!-- Modal End -->
               <p id="modal_open">댓글 모두 보기</p>
             </div>
@@ -506,12 +524,23 @@
           <!-----------------------------    댓글 input + 게시   ----------------------------->
           <ul class="list-group list-group-flush">
             <li class="list-group-item" style="border-top: 1px solid rgb(219, 219, 219)">
-              <input class="input_comment" id="input_comment"
-                style="border: none; background-color: transparent; width: 350px; outline: none;" type="text"
-                placeholder="댓글달기...">
-              <button class="card-btn" onclick="save()">
-                게시
-              </button>
+
+<!--              <div class="write_comment">-->
+                      <div class="emogi">
+                        <svg aria-label="Emoji" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path></svg>
+                      </div>
+
+                      <div class="write-main">
+                        <input id="input_comment" type="text"
+                          style="border: none; outline: none; width: 350px; outline: none; background-color: transparent;"
+                          placeholder="댓글 달기..." />
+                      </div>
+
+                      <button class="register" onclick="save()">
+                        게시
+                      </button>
+<!--                    </div>-->
+
             </li>
           </ul>
         </div>

@@ -26,11 +26,10 @@
 }
 .modal_close{
     display: flex;
-    margin-left: 430px;
-
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
     color: white;
     z-index: 30;
 }
@@ -96,16 +95,19 @@
     padding-left: 10px;
     /*margin-top: 330px;*/
     border-top: lightgray 1px solid;
-    margin: 10px 10px 0px 10px;
+    padding: 0px 10px 10px 10px;
 }
 .modal_icon {
     /*margin-top: 15px;*/
     /*margin-bottom: 10px;*/
 }
-.fa-regular {
-    margin: 0px 7px;
+.card-title i {
+    padding-right: 3px;
 }
 
+.modal_like {
+    margin: 7px 0px;
+}
 
 .bold {
     font-weight: bold;
@@ -125,7 +127,7 @@
     padding: 10px;
 }
 .emogi {
-
+    margin-right: 5px;
 }
 .register {
     font-weight: bold;
