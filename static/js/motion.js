@@ -241,7 +241,7 @@ function show_posting() {
         data: {},
         success: function (response) {
             let postings = response['post_info']
-            for (let i = 0; i < postings.length; i++) {     // 여기 안에 템프HTML 넣음
+            for (let i = 0; i < postings.length; i++) {
                 console.log(postings[i].author,
                     postings[i].post,
                     postings[i].img)
