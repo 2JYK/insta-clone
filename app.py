@@ -177,10 +177,14 @@ def profile_info(): # 프로필 정보
 
 @app.route("/mypage/user", methods=["GET"]) # user_info + post + 프로필사진!!!!!!!!!!!!!!!
 def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
+	token_receive = request.cookies.get('mytoken')
+	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+	profile_id = db.user_info.find_one({"insta_id": payload["id"]})['insta_id']
 	user_info_list = list(db.user_info.find({}, {'_id': False}))
 	# post_list = list(db.post_info.find({}, {'_id': False}))
 	# follow, following 에서도 숫자 받아와야지 len
-	return jsonify({'result': 'success','user_info_list': user_info_list})
+	return jsonify({'result': 'success','profile_id': profile_id,'user_info_list': user_info_list})
 
 
 # post ###########################################

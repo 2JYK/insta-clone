@@ -48,10 +48,16 @@ function show_insta_id() {
         url: '/mypage/user',
         data: {},
         success: function (response) {
-            const prof_name = response['user_info_list']
-            const name = prof_name[0]['name']
-            const insta_id = prof_name[0]['insta_id']
-            let temp_html = `<div class="user_id">${insta_id}</div>
+            const user = response['user_info_list']
+            const id = response['profile_id']
+            let name = ``
+            for (let i=0; i < user.length; i++) {
+                if (id === user[i]['insta_id']) {
+                    name = user[i]['name']
+                }
+            }
+
+            let temp_html = `<div class="user_id">${id}</div>
                                   <div>
                                       <div class="state">
                                           <div><a class="state_num" href="">게시물 81</a></div>
