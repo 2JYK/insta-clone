@@ -93,14 +93,19 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-
+    padding-left: 10px;
     /*margin-top: 330px;*/
     border-top: lightgray 1px solid;
+    margin: 10px 10px 0px 10px;
 }
 .modal_icon {
-    margin-top: 15px;
-    margin-bottom: 10px;
+    /*margin-top: 15px;*/
+    /*margin-bottom: 10px;*/
 }
+.fa-regular {
+    margin: 0px 7px;
+}
+
 
 .bold {
     font-weight: bold;
@@ -108,8 +113,8 @@
 .modal_time {
     font-size: 12px;
     color: grey;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
 }
 .write_comment {
     display: flex;
@@ -117,7 +122,10 @@
     justify-content: flex-start;
 
     border-top: lightgray 1px solid;
-    padding-top: 10px;
+    padding: 10px;
+}
+.emogi {
+
 }
 .register {
     font-weight: bold;
@@ -207,14 +215,12 @@
 .modal_content_write{
     display: flex;
 
-    flex-direction: column;
-    border-left: 1px solid rgba(0, 0, 0, 0.18);;
 }
 
 .feed_content_textarea{
     resize: none;
     border: 2px solid salmon;
-    width: 100%;
+    width: auto;
 }
 
 .modal_input {
