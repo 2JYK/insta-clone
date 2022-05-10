@@ -21,8 +21,9 @@ def home():
 		payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 		print(payload)
 		user_info = db.user_info.find_one({"insta_id": payload['id']})
-		print(user_info)
-		return render_template('index.html', user_name=user_info["name"])
+		user_id = user_info['insta_id']
+		user_name = user_info['name']
+		return render_template('index.html', user_name=user_info["name"], user_id=user_info['insta_id'])
 	# 만약 해당 token의 로그인 시간이 만료되었다면, 아래와 같은 코드를 실행.
 	except jwt.ExpiredSignatureError:
 		return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
@@ -32,7 +33,7 @@ def home():
 
 @app.route('/mypage')
 def mypage():
-   return render_template('mypage.html')
+	return render_template('mypage.html')
 
 @app.route('/signup')
 def signup():
@@ -192,35 +193,35 @@ def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 # 게시글 순서 : +버튼 클릭 -> 사진 드래그해서 등록 -> 문구 입력, 위치 추가 -> '공유하기' 버튼 눌러서 등록
 @app.route('/posting', methods=['POST'])
 def posting():
-    token_receive = request.cookies.get('mytoken')
-    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-    
-    author_receive = db.user_info.find_one({"insta_id": payload["id"]})
-    feed_posting_receive = request.form['feed_posting_give']
-    photo = request.files['photo_give']
-    
-    # 해당 파일에서 확장자명만 추출
-    extension = photo.filename.split('.')[-1]
-    
-    # 파일 이름이 중복되면 안되므로, 지금 시간을 해당 파일 이름으로 만들어서 중복이 되지 않게 함!
-    today = datetime.datetime.now()
-    mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
-    filename = f'{photo.filename}-{mytime}'
-    
-    # 파일 저장 경로 설정 (파일은 db가 아니라, 서버 컴퓨터 자체에 저장됨)
-    save_to = f'static/img/{filename}.{extension}'
-    # 파일 저장!
-    photo.save(save_to)
-    
-    # 아래와 같이 입력하면 db에 추가 가능!
-    doc = {
+	token_receive = request.cookies.get('mytoken')
+	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+	author_receive = db.user_info.find_one({"insta_id": payload["id"]})
+	feed_posting_receive = request.form['feed_posting_give']
+	photo = request.files['photo_give']
+
+	# 해당 파일에서 확장자명만 추출
+	extension = photo.filename.split('.')[-1]
+
+	# 파일 이름이 중복되면 안되므로, 지금 시간을 해당 파일 이름으로 만들어서 중복이 되지 않게 함!
+	today = datetime.datetime.now()
+	mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
+	filename = f'{photo.filename}-{mytime}'
+
+	# 파일 저장 경로 설정 (파일은 db가 아니라, 서버 컴퓨터 자체에 저장됨)
+	save_to = f'static/img/{filename}.{extension}'
+	# 파일 저장!
+	photo.save(save_to)
+
+	# 아래와 같이 입력하면 db에 추가 가능!
+	doc = {
         'author': author_receive,
         'post':feed_posting_receive,
         'img':f'{filename}.{extension}'
         }
-    db.post_info.insert_one(doc)
+	db.post_info.insert_one(doc)
 
-    return jsonify({'result':'success', 'msg':'포스팅 완료'})
+	return jsonify({'result':'success', 'msg':'포스팅 완료'})
 
 
 # get는 아직 안만짐

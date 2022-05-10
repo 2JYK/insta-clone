@@ -154,10 +154,10 @@
           <img src="../static/img/kim.jpg" class="side-img">
         </a>
 
-        <div class="side-name">
-          <a href="/mypage"><span style="font-weight: bold">KKS_97</span></a>
+        <div class="side-name"> <!-- Jinja 사용 -->
+          <a href="/mypage"><span style="font-weight: bold">{{ user_id }}</span></a>
           <br>
-          <span>김경수</span>
+          <span>{{ user_name }}</span>
         </div>
         <!-- 전환 버튼 -->
         <div href="#" class="side-change">

@@ -7,6 +7,7 @@ $(document).ready(function () {
     $("#modal_close").click(function () {
         $('#modal').hide();
     })
+
 // 사진 상세보기기능- 댓글 모두보기 클릭시
     show_comment();
 
@@ -233,7 +234,7 @@ function posting() {
   });
 }
 
-//          ㅡㅡㅡㅡㅡㅡㅡPOSTㅡㅡㅡㅡㅡㅡㅡㅡ
+// ㅡㅡㅡㅡㅡㅡㅡ메인 피드에서 직접 댓글달기(댓글 더보기 x)ㅡㅡㅡㅡㅡㅡㅡㅡ
 function save() {
     let comment = $("#input_comment").val();
 
@@ -241,8 +242,8 @@ function save() {
         type: 'POST',
         url: '/comment',
         data: {cm_give: comment},
-            success: function (response) {
-                window.location.reload();
-            }
+        success: function (response) {
+            window.location.reload();
+        }
     });
 }
