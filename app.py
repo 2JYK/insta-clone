@@ -191,18 +191,16 @@ def posting(): # 포스팅 정보 입력
 	token_receive = request.cookies.get('mytoken')
 	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
-	# cm_writer_receive = db.user_info.find_one({"insta_id": payload["id"]})
+	author_receive = db.user_info.find_one({"insta_id": payload["id"]})
 	photo_receive = request.form['photo_give']
-	post_desc_receive = request.form['post_desc_give']
+	feed_receive = request.form['feed_give']
 	# post_date_receive = request.form['post_date_give']
 
-
-	doc = { # db에 입력되는 user의 정보
-
+	doc = {
+		'author': author_receive,
 		'photo': photo_receive,
-		'post_desc': post_desc_receive,
+		'feed': feed_receive
 		# 'post_date': post_date_receive,
-
 	}
 
 	db.post_info.insert_one(doc)
@@ -210,9 +208,9 @@ def posting(): # 포스팅 정보 입력
 	return jsonify({'msg': '포스팅 완료!'})
 
 
-@app.route("/mars", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
+@app.route("/posting", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
 def post_output():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
-	user_info_list = list(db.userinfo.find({'name'}, {'phone_num', 'email', 'password'}))
+	user_info_list = list(db.userinfo.find({}, {'_id': False}))
 	post_info_list = list(db.postinfo.find({}, {'_id': False}))
 	return jsonify({'post_name': user_info_list, 'post_info': post_info_list})
 
