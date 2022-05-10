@@ -122,24 +122,6 @@ $(function () {
 });
 
 
-//          ㅡㅡㅡㅡㅡㅡㅡPOSTㅡㅡㅡㅡㅡㅡㅡㅡ
-function save() {
-    let desc = $("#").val
-    let photo
-    $.ajax({
-        type: 'POST',
-        url: '/posting',
-        data: {
-            desc_give: desc,
-            //     photo :
-            },
-            success: function (response) {
-                alert(response['msg'])
-                window.location.reload()
-            }
-        });
-    }
-
 // 드롭박스-히스토리
 function history() {
     // id 값 drophis의 display 값이 block 이면
@@ -229,24 +211,38 @@ buttonCloseModal.addEventListener("click", e => {
 
 
 //   ㅡㅡㅡㅡㅡ POST ㅡㅡㅡㅡㅡ
-function posting() {
-  let feed = $('#feed').val()
-  let file = $('#file')[0].files[0]
-  let form_data = new FormData()
+// function posting() {
+//   let feed = $('#feed').val()
+//   let photo = $('#file')[0].files[0]
+//   let form_data = new FormData()
+//
+//   form_data.append("feed_give", feed)
+//   form_data.append("file_give", photo)
+//
+//   $.ajax({
+//       type: "POST",
+//       url: "/posting",
+//       data: form_data,
+//       cache: false,
+//       contentType: false,
+//       processData: false,
+//       success: function (response) {
+//           alert(response["result"])
+//           window.location.reload()
+//       }
+//   });
+// }
 
-  form_data.append("feed_give", feed)
-  form_data.append("file_give", file)
+//          ㅡㅡㅡㅡㅡㅡㅡPOSTㅡㅡㅡㅡㅡㅡㅡㅡ
+function save() {
+    let comment = $("#input_comment").val();
 
-  $.ajax({
-      type: "POST",
-      url: "/fileupload",
-      data: form_data,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: function (response) {
-          alert(response["result"])
-          window.location.reload()
-      }
-  });
+    $.ajax({
+        type: 'POST',
+        url: '/comment',
+        data: {cm_give: comment},
+            success: function (response) {
+                window.location.reload();
+            }
+    });
 }
