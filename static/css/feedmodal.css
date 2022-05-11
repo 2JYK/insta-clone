@@ -6,6 +6,10 @@
     position: fixed;
 }
 
+.click {
+    cursor: pointer;
+}
+
 .modal_box {
     display: flex;
     flex-direction: row;
@@ -24,21 +28,20 @@
 .modal_right {
     width: 550px;
 }
+
 .modal_close{
-    display: flex;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: relative;
+    left: 370px;
     border: none;
     color: white;
     z-index: 30;
 }
+
 /* 모달 오른쪽 내용물 시작 */
 
 /* 모달 안에 있는 게시물 작성자 */
 .modal_pf {
     display: flex;
-    justify-content: flex-start;
     flex-direction: row;
 
     width: 100%;

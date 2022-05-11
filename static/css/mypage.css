@@ -143,6 +143,11 @@ header {
     flex-wrap: wrap;
 }
 
+.modal_close {
+    cursor: pointer;
+    font-size: 25px;
+}
+
 
 
 /*      드롭박스-전체박스 처음에 없어진 상태로 있기     */

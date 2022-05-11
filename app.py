@@ -30,9 +30,15 @@ def home():
 		# 만약 해당 token이 올바르게 디코딩되지 않는다면, 아래와 같은 코드를 실행.
 		return redirect(url_for("login", msg="로그인이 필요합니다."))
 
+
 @app.route('/mypage')
 def mypage():
-	return render_template('mypage.html')
+   token_receive = request.cookies.get('mytoken')
+   payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+   user_info = db.user_info.find_one({"insta_id": payload['id']})
+
+   return render_template('mypage.html', user_id=user_info['insta_id'])
 
 @app.route('/signup')
 def signup():
