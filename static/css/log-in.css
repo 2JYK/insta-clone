@@ -3,37 +3,84 @@
     text-decoration: none;
 }
 
-a:link { color: black; text-decoration: none;}
-a:visited { color: black; text-decoration: none;}
+/*a:link { color: black; text-decoration: none;}*/
+a:visited { color: #afeeee; text-decoration: none;}
+
+/*      전체 배경 애니메이션 효과      */
+@keyframes body {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/*      전체 설정 : 배경, li 태그, 정렬       */
+body {
+    background: linear-gradient(
+    to right, #324856,
+        #4A746A, #D18237, #D66c44, #a1b3cb, #c0c0c0, #4399c8, #26689a, #6b358b, #8775b3);
+    background-size: 400% 400%;
+    animation: body 10s infinite ease-in-out;
+
+    list-style: none;
+    height: 100%;
+    width: 100%;
+}
+
 
 body {
-    background: lightgray;
+    /*background: lightgray;*/
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .all_content {
-    background: white;
+/*    background: white;*/
 
     max-width: 350px;
-    height: 500px;
-    border: 5px solid #a1a1a18f;
-    border-radius: 3%;
+    height: 492px;
+/*    border: 5px solid #a1a1a18f;*/
+/*    border-radius: 3%;*/
+
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+    margin: 10% auto;
+/*    padding: 20px;*/
+/*    box-shadow: 5px 5px 5px 5px #a1a1a18f;*/
+/*}*/
+    background: #0c162d;
+    opacity: 70%;
+
+    /*max-width: 320px;*/
+    /*height: 460px;*/
+    border: 0.5px solid #afeeee;
+    border-radius: 12px;
+    padding: 15px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    vertical-align: middle;
     margin: 10% auto;
-    padding: 20px;
-    box-shadow: 5px 5px 5px 5px #a1a1a18f;
+
+    flex: auto;
+    justify-content: center; !important
 }
 
+/*      로고 : 사이즈, 테두리, 정렬       */
 .round {
-    border: black solid 1px;
+    border: 0.1px solid #afeeee;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 100%;
 }
 
 .user_login {
@@ -46,51 +93,110 @@ body {
 }
 
 .user_input {
+    /*padding: 17px;*/
+    border: none;
+    /*text-align: center;*/
 
 }
 
 .user_text {
-    padding: 10px;
-    border: none;
+    /*padding: 10px;*/
+    /*border: none;*/
+    /*width: 260px;*/
+    /*margin-bottom: 10px;*/
+    /*background-color: #e8f0fe;*/
+    /*border-radius: 2%;*/
+    background-color: #627597;
+    opacity: 30%;
+
     width: 260px;
-    margin-bottom: 10px;
-    background-color: #e8f0fe;
-    border-radius: 2%;
-}
-
-.user-login_btn {
-    font-size: 15px;
     border: none;
-    padding: 10px;
-    width: 180px;
-    background-color: #0095f6;
-    color: white;
-    height: auto;
-    border-radius: 5%;
-    cursor: pointer;
-}
+    border-radius: 12px;
+    padding: 7px;
 
-footer {
-    position: relative;
-    top: 15%;
+    margin-bottom: 20px;
     text-align: center;
 }
 
+.user-login_btn {
+    /*font-size: 15px;*/
+    /*border: none;*/
+    /*padding: 10px;*/
+    /*width: 180px;*/
+    /*background-color: #0095f6;*/
+    /*color: white;*/
+    /*height: auto;*/
+    /*border-radius: 5%;*/
+    /*cursor: pointer;*/
+    border: 0.5px solid #afeeee;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 12px;
+
+    width: 78px;
+    height: auto;
+    padding: 10px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    /*padding: 10px 20px;*/
+    border: 3px solid #3c67e3;
+    border-radius: 10px;
+}
+
+/*      Sign up 박스 효과 */
+.user-login_btn:hover {
+    animation: pulsate 1s ease-in-out;
+}
+@keyframes pulsate {
+    0%{
+        box-shadow:
+        0 0 25px #5ddcff;
+    }
+}
+
+
+footer {
+    /*position: relative;*/
+    /*top: 15%;*/
+    text-align: center;
+    color: #fffff0;
+    border-radius: 12px;
+    border: none;
+    padding: 7px;
+
+    margin: 30px;
+}
+
 .user_forgot {
-    color: black;
+    color: white;
     font-weight: bold;
     padding-bottom: 2%;
 }
 .sign_in {
     width: auto;
     height: auto;
-    background-color: #e8f0fe;
+    /*background-color: #e8f0fe;*/
     padding: 10px;
     border-radius: 5%;
 }
 
 .sign_in a {
-    color: blue;
+    /*color: blue;*/
     font-weight: bold;
+    color: #D66c44;
+    /*font-weight: bold;*/
+    text-decoration: none;
+}
+
+/*      placeholder : 폰트 색상, 크기       */
+.user_input ::placeholder {
+    color : #d0ff00;
+    font-size: 12px;
 }
 
