@@ -308,7 +308,7 @@
     <div class="story_02">
       <a href="#main-2">
         <img src="../static/img/dog.jpg" alt="" class="story_img">
-        <span class="font">kksu_97</span>
+        <span class="font">{{ user_id }}</span>
       </a>
     </div>
 
@@ -373,7 +373,7 @@
             </div>
 
             <div class="card_03">
-              <p class="card_font">kksu_97</p>
+              <p class="card_font">{{ user_id }}</p>
             </div>
           </div>
           <!-----------------------------   카드 사진 !!!캐러셀 !!!   ----------------------------->
@@ -449,7 +449,7 @@
                       <div><img style="width: 40px; border-radius: 50%"
                           src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
                       </div>
-                      <div class="modal_pf_name">kksu_97</div>
+                      <div class="modal_pf_name">{{ user_id }}</div>
                     </div>
                     <!--  modal 안에 있는 게시물 설명-->
 
@@ -457,8 +457,8 @@
                       <div><img style="width: 40px; border-radius: 50%"
                           src="https://ca.slack-edge.com/T039CS8AH0D-U03A6RBGK60-faffa361ecd3-512">
                       </div>
-                      <div class="modal_pf_name">kksu_97</div>
-                      <p class="modal_desc_write">라이언 너무 귀엽다. 라이언 만세!!!!! #라이언</p>
+                      <div class="modal_pf_name">{{ user_id }}</div>
+                      <p class="modal_desc_write">{{ post }}</p>
                     </div>
                     <!--  modal 게시물에 달린 댓글 시작-->
                     <div class="comments" id="comments"></div>
@@ -571,7 +571,7 @@
             <img class="profile_img" id="input_profile_image" src="../static/img/kim.jpg">
           </div>
           <span class="modal_name_text" id="input_user_id">
-            kksu_97
+           {{ user_id }}
           </span>
         </div>
 
