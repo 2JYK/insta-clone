@@ -56,7 +56,7 @@ function show_insta_id() {
                     name = user[i]['name']
                 }
             }
-            const post = response['post'].length
+            const post = response['post'].length+1
 
             let temp_html = `<div class="user_id">${id}</div>
                                   <div>

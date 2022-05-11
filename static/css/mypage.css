@@ -148,6 +148,9 @@ header {
     font-size: 25px;
 }
 
+.modal_icon i {
+    margin-right: 4px;
+}
 
 
 /*      드롭박스-전체박스 처음에 없어진 상태로 있기     */
