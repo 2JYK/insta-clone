@@ -38,7 +38,7 @@ def mypage():
 
    user_info = db.user_info.find_one({"insta_id": payload['id']})
 
-   return render_template('mypage.html', user_id=user_info['insta_id'])
+   return render_template('mypage.html', user_id=user_info['insta_id'], user_name=user_info['name'])
 
 @app.route('/signup')
 def signup():
@@ -87,7 +87,7 @@ def sign_up(): 									# 회원 가입
 	name_receive = request.form['name_give']
 	insta_id_receive = request.form['insta_id_give']
 	password_receive = request.form['password_give']
-	user_profile_receive = request.form['user_profile_give']
+
 
 	password_hash_receive = hashlib.sha256(password_receive.encode('utf-8')).hexdigest()
 
@@ -97,8 +97,7 @@ def sign_up(): 									# 회원 가입
 		'email': email_receive,
 		'name': name_receive,
 		'insta_id': insta_id_receive,
-		'password': password_hash_receive,
-		'user_profile': user_profile_receive
+		'password': password_hash_receive
 	}
 
 	db.user_info.insert_one(doc)						# user_info 라는 db에 / 딕셔너리 형식으로 / 회원정보 저장!
@@ -252,11 +251,10 @@ def comment_info():
 	cm_writer_receive = db.user_info.find_one({"insta_id": payload["id"]})
 	cm_receive = request.form['cm_give']
 
-	post_serial = db.post_info.find_one.ObjectId("_id")
-	print(post_serial)
+
 
 	doc = {
-		# 'post_serial': ObjectId(post_serial['_id']).str
+
 		'cm_writer': cm_writer_receive['insta_id'],
 		'cm': cm_receive
 	}
@@ -306,4 +304,4 @@ def follower_info(): # 팔로잉 정보 입력
 
 
 if __name__ == '__main__':
-	app.run('0.0.0.0', port=5000, debug=True)
+	app.run('0.0.0.0', port=5001, debug=True)

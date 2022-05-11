@@ -299,7 +299,7 @@ function show_posting() {
                             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="false">
                               <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="false">
-                                  <img src="../static/img/${img}.jpg" class="d-block w-100" alt="...">
+                                  <img src="../static/img/${img}" class="d-block w-100" alt="...">
                                 </div>
                               </div>
                               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"

@@ -225,7 +225,7 @@ footer {
     padding-bottom: 2%;
 
     border: 2px solid rgb(219, 219, 219);
-    width: 37%;
+    width: 36%;
     height: 30%;
     background-color: white;
 }
@@ -298,7 +298,7 @@ footer {
 }
 
 .card_img {
-    background-image: url(../static/img/dog.jpg);
+    background-image: url(../img/dog.jpg);
     background-position: center;
     background-size: cover;
     width: 50px;
