@@ -216,13 +216,14 @@
 
 .modal_content_write{
     display: flex;
-
+    flex-direction: column;
+    border-left: 1px solid rgba(0, 0, 0, 0.18);;
 }
 
 .feed_content_textarea{
     resize: none;
     border: 2px solid salmon;
-    width: auto;
+    width: 100%;
 }
 
 .modal_input {

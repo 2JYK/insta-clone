@@ -1,4 +1,3 @@
-from turtle import fd
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from pymongo import MongoClient
 
@@ -46,7 +45,7 @@ def login():
 	return render_template('log-in.html', msg=msg)
 
 
-# user ###########################################
+# ㅡㅡㅡㅡㅡ user ㅡㅡㅡㅡㅡ
 
 @app.route("/signup", methods=["POST"])
 def sign_up(): 									# 회원 가입
@@ -100,8 +99,7 @@ def sign_up(): 									# 회원 가입
 	return jsonify({'result': 'success', 'msg': '회원가입 완료!'})
 
 
-# 로그인 ###########################################
-
+# 			ㅡㅡㅡㅡㅡ 로그인 ㅡㅡㅡㅡㅡ
 # id, pw를 받아서 맞춰보고, 토큰을 만들어 발급.
 @app.route('/login', methods=['POST'])
 def api_login():
@@ -125,7 +123,7 @@ def api_login():
 			'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60*60*24)		# 라이브러리 이용해서 활성화 완료 일단은 안됨xxxx
 		}
 		token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
-
+		
 		# token을 주고.
 		return jsonify({'result': 'success', 'token': token})
 	# 찾지 못하면
@@ -138,7 +136,6 @@ def api_login():
 # [유저 정보 확인 API]
 # 로그인된 유저만 call 할 수 있는 API입니다.
 # 유효한 토큰을 줘야 올바른 결과를 얻어갈 수 있습니다.
-# (그렇지 않으면 남의 장바구니라든가, 정보를 누구나 볼 수 있겠죠?)
 @app.route('/name', methods=['GET'])
 def api_valid():
 	token_receive = request.cookies.get('mytoken')
@@ -164,9 +161,7 @@ def api_valid():
 		return jsonify({'result': 'fail', 'msg': '로그인 정보가 존재하지 않습니다.'})
 
 
-# profile ###########################################
-
-
+# 		ㅡㅡㅡㅡㅡ profile ㅡㅡㅡㅡㅡ
 @app.route("/mypage/user", methods=["POST"])
 def profile_info(): # 프로필 정보
 	pf_img_receive = request.form['pf_img_give']
@@ -192,13 +187,13 @@ def prof_output():  # 회원정보에서 아이디와 이름을 받아오고, �
 	return jsonify({'result': 'success','profile_id': profile_id,'user_info_list': user_info_list, 'post': post_list})
 
 
-# post ###########################################
+
+# 		ㅡㅡㅡㅡㅡ post ㅡㅡㅡㅡㅡ
 # 게시글 순서 : +버튼 클릭 -> 사진 드래그해서 등록 -> 문구 입력, 위치 추가 -> '공유하기' 버튼 눌러서 등록
 @app.route('/posting', methods=['POST'])
 def posting():
 	token_receive = request.cookies.get('mytoken')
 	payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-
 
 	author_receive = db.user_info.find_one({"insta_id": payload["id"]})["insta_id"]
 	feed_posting_receive = request.form['feed_posting_give']
@@ -228,7 +223,6 @@ def posting():
 	return jsonify({'result':'success', 'msg':'포스팅 완료'})
 
 
-# get는 아직 안만짐
 @app.route("/posting", methods=["GET"]) # 게시글에 들어가는 회원 아이디, 게시글꺼 다 받아와서 쏴주세요~
 def feed_post():  # 회원정보에서 아이디와 이름을 받아오고, 이름을 프로필에 보여줌(아이디는 신원 확인용)
 	token_receive = request.cookies.get('mytoken')
@@ -241,7 +235,7 @@ def feed_post():  # 회원정보에서 아이디와 이름을 받아오고, 이�
 	return jsonify({'post_info': post_info_list, 'comment_info': comment_info_list})
 
 
-# comment ###########################################
+# 			ㅡㅡㅡㅡㅡ comment ㅡㅡㅡㅡㅡ
 
 
 @app.route("/comment", methods=["POST"])

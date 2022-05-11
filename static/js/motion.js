@@ -52,7 +52,7 @@ $(document).ready(function () {
     })
 })
 
-//          ㅡㅡㅡㅡㅡㅡㅡ모달ㅡㅡㅡㅡㅡㅡㅡㅡ
+//          ㅡㅡㅡㅡㅡㅡㅡ [...] 모달ㅡㅡㅡㅡㅡㅡㅡㅡ
 $(function () {
     $("#confirm").click(function () {
         modalClose(); //모달 닫기
@@ -189,7 +189,7 @@ function show_comment() {
 
 
 
-//        ㅡㅡㅡㅡㅡ feed modal  ㅡㅡㅡㅡㅡ
+//        ㅡㅡㅡㅡㅡ [+] feed modal  ㅡㅡㅡㅡㅡ
 const modal = document.getElementById("feed_modal_in");
 
 const buttonAddFeed = document.getElementById("feed");
@@ -211,7 +211,7 @@ buttonCloseModal.addEventListener("click", e => {
 });
 
 
-//   ㅡㅡㅡㅡㅡ POST ㅡㅡㅡㅡㅡ
+//   ㅡㅡㅡㅡㅡ [+] feed modal API ㅡㅡㅡㅡㅡ
 function posting() {
     let feed_posting = $('#feed_posting').val()
     let photo = $('#photo')[0].files[0]
@@ -251,12 +251,6 @@ function show_posting() {
                     postings[i].post,
                     postings[i].img)
             }
-
-            // let comments = response['comment_info']
-            // for (let i = 0; i < comments.length; i++) {
-            //     let writer = comments[i].cm_writer
-            //     let content = comments[i].cm
-            // }
             function append_temp_html(id, post, img) {
                 temp_html = `            
                   <div id="binds">
@@ -469,7 +463,7 @@ function show_posting() {
         }
     });
 }
-// GET 호출을 해줘야 함 
+// [+] modal GET 호출
 show_posting()
 
 
